@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>東京大学 情報理工学系研究科 創造情報学専攻 2011年度 夏入試 専門科目</title>
+<!--#include virtual="/common/header.html" -->
+</head>
+<body>
+<!--#include virtual="/common/navbar.html" -->	
+
+	<div class="container well well-lg" style="background: red well">
+		<h3>東京大学 情報理工学系研究科 創造情報学専攻 2011年度 夏入試 専門科目</h3>
+		<hr />
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第１問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<pre>・最初にG4を選択したなら、G4→G3→,,,と選択するのが自然だが・・・
+	(ε,{G1,G2,G3,G4})
+		(&lt;G4&gt; , {G1,G2,G3})
+			(&lt;G4,G3&gt; , {G1,G2})
+				(&lt;G4,G3,G2&gt; , {G1}) qmin&lt;9&lt;qmax より終了
+
+・G4→G1→G2,,,と選択するなら
+	(ε,{G1,G2,G3,G4}) k=0 : cost=0
+		(&lt;G4&gt;,{G1,G2,G3}) k=1 : cost=4
+			(&lt;G4,G1&gt;,{G2,G3}) k=2 : cost=5
+				(&lt;G4,G1,G2&gt;,{ε}) k=3 : cost=7
+				(&lt;G4,G1,G3&gt;,{ε}) k=3 : cost=8
+			(&lt;G4,G2&gt;,{G1,G3}) k=2 : cost=6
+				(&lt;G4,G2,G1&gt;,{ε}) k=3 : cost=7
+				(&lt;G4,G2,G3&gt;,{ε}) k=3 : cost=9 →出力して終了</pre>
+
+				<br> <br>
+				<h2>(2)</h2>
+				<pre>(1)の問題の例でqmin = 7 , qmax = 9 の場合を考える。
+価格の高いものから選択するので。
+(ε,{G1,G2,G3,G4})
+	(&lt;G4&gt; , {G1,G2,G3})
+		(&lt;G4,G3&gt; , {G1,G2})
+			(&lt;G4,G3,G2&gt; , {ε})　price = 9 ☓
+		(&lt;G4,G3&gt; , {G1,G2})
+			(&lt;G4,G3,G1&gt; , {ε})  price = 7 ○
+この問題の場合の最小呼び出し回数は4回であるが、高い価格のものから選択すると５回の呼び出しが必要であり、最小回数ではない。</pre>
+
+				<br> <br>
+				<h2>(3)</h2>
+				<p>全ての商品の価格の総和&lt;qmin&lt;qmaxとなるとき、back呼び出し回数は最大となる。</p>
+				<p>
+					なぜなら、ステップ３においてS’=Sとなるので、１つずつしか要素数が減らず、しかも&lt;qminの条件が成立することは無いので、back(要素数L,
+					0)まで値を返さずに全てのback呼び出しにおいて続いてしまうからである。</p>
+				<p>このことから、tLは、tL-1～t0までの最大呼び出し回数の和+自分自身の呼び出し回数である１回を加算したものであることが分かる。</p>
+
+				<h2>(4)</h2>
+				<p style="color: red">漸化式は a_n = n * a_(n-1) + 1
+					になると思うが一般項の求め方を忘れた。
+				<p>
+			</div>
+
+		</div>
+
+		<br> <br> <br> <br>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第２問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1-1)</h2>
+				<p>・２オペランド方式</p>
+				<p>add op1 op2</p>
+				<p>２つのオペランドで１命令を実行可能。主記憶上のデータを直接アクセス可能。</p>
+				<p>しかしop1かop2に計算結果が書き込まれるため、書き込まれる前のデータが消滅してしまう。後に必要となる場合は予め他のオペランドにコピーしておく必要があるため、２つ以上の命令が必要となる。</p>
+				<br>
+				<p>・３オペランド方式</p>
+				<p>演算に使用する２つのデータと、格納場所を１つの命令で表すことが可能。</p>
+				<p>ただし演算に使用するオペランドはレジスタのみに制限されるので、もしひとつでも主記憶にあるデータを使用する場合は２命令必要となる。</p>
+
+				<br> <br>
+				<h2>(1-2)</h2>
+				<p>・算術命令がメモリオペランドを持つ形式</p>
+				<p>メモリ上にあるデータに1命令で直接演算を実行可能であるが、頻繁に演算を行うような処理の場合、毎回メモリアクセスが発生するため、処理速度が遅くなる。</p>
+				<br>
+				<p>・ロード/ストア命令を算術命令等とは別に持つ形式</p>
+				<p>レジスタ内で頻繁に演算を実行するような処理であるならばメモリアクセスを最小限に抑えられるので高速であるが、様々なメモリアドレスを対象の演算を頻繁にするような処理なのであれば、その度にロード、ストア命令を個別にしなければならないため低速。
+				</p>
+
+				<br> <br>
+				<h2>(2)</h2>
+				<p>・命令の種類と処理内容</p>
+
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>命令フィールド</td>
+							<td>op1</td>
+							<td>op2</td>
+							<td>IM</td>
+						</tr>
+						<tr>
+							<td>3bit</td>
+							<td>3bit</td>
+							<td>3bit</td>
+							<td>7bit</td>
+						</tr>
+					</table>
+				</div>
+
+				<br>
+
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>bit割り当て</td>
+							<td>命令</td>
+							<td>処理</td>
+						</tr>
+						<tr>
+							<td>000</td>
+							<td>ADDI op1,op2,IM</td>
+							<td>op1 に op2の値と、値を直接表したIMを加算して格納</td>
+						</tr>
+						<tr>
+							<td>001</td>
+							<td>SLLI op1,op2,IM</td>
+							<td>op1をop2+IMの分だけ左シフト</td>
+						</tr>
+						<tr>
+							<td>010</td>
+							<td>LOAD op1,op2,IM</td>
+							<td>op1にメモリのop2+IM番地の値を読み込む</td>
+						</tr>
+						<tr>
+							<td>011</td>
+							<td>STORE op1,op2,IM</td>
+							<td>op1をメモリのop2+IM番地に書き込む</td>
+						</tr>
+						<tr>
+							<td>100</td>
+							<td>BLT op1,op2,IM</td>
+							<td>op1&lt;op2 であれば、 pc = pc + 2 + IM</td>
+						</tr>
+						<tr>
+							<td>101</td>
+							<td>JUMP op1,op2,IM</td>
+							<td>IMが示す絶対番地へ飛ぶ</td>
+						</tr>
+					</table>
+				</div>
+
+				<br>
+				<p>・レジスタ</p>
+				<p>レジスタフィールドは3bitあるので、2^3 = 8つのレジスタを使用可能。</p>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>レジスタ名</td>
+							<td>機能</td>
+						</tr>
+						<tr>
+							<td>r1</td>
+							<td>常に０が格納されているレジスタ</td>
+						</tr>
+						<tr>
+							<td>r1</td>
+							<td rowspan="6">汎用レジスタ</td>
+						</tr>
+						<tr>
+							<td>r2</td>
+						</tr>
+						<tr>
+							<td>r3</td>
+						</tr>
+						<tr>
+							<td>r4</td>
+						</tr>
+						<tr>
+							<td>r5</td>
+						</tr>
+						<tr>
+							<td>r6</td>
+						</tr>
+						<tr>
+							<td>r7</td>
+							<td>スタックポインタ用レジスタ(サブルーチン呼び出し、リターンに必要)</td>
+						</tr>
+					</table>
+				</div>
+
+				<br> <br>
+				<h2>(3)</h2>
+				<p>r1:最大値を格納</p>
+				<p>r2:最小値を格納</p>
+				<p>r3:アドレスを格納</p>
+				<br>
+
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td></td>
+							<td>行数</td>
+							<td>命令</td>
+							<td>オペランド</td>
+							<td>コメント</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>1</td>
+							<td>ADDI</td>
+							<td>r1,r0,0</td>
+							<td>r1に最大値０を設定</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>2</td>
+							<td>ADDI</td>
+							<td>r2,r0,最大値</td>
+							<td>r2に最小値を設定</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>3
+							<td>ADDI</td>
+							<td>r3,r0,0</td>
+							<td>r3を100個の整数を示すアドレスの先頭番地に初期化</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>4</td>
+							<td>ADDI</td>
+							<td>r4,r0,100</td>
+							<td>r4 = 100</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>5</td>
+							<td>SLLI</td>
+							<td>r4,r0,1</td>
+							<td>論理左シフトよりr4 = 200</td>
+						</tr>
+						<tr>
+							<td>loop</td>
+							<td>6</td>
+							<td>LOAD</td>
+							<td>r5,r3,0</td>
+							<td>r5 = 整数</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>7</td>
+							<td>BLT</td>
+							<td>r1,r5,4</td>
+							<td>r1&lt;r5ならpc = pc+2 + 4</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>8</td>
+							<td>BLT</td>
+							<td>r5,r2,6</td>
+							<td>r5&lt;r2ならpc = pc+2 + 6</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>9</td>
+							<td>JUMP</td>
+							<td>r0,r0,14</td>
+							<td>14行目へ無条件ジャンプ</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>10</td>
+							<td>ADDI</td>
+							<td>r1,r4,0</td>
+							<td>最大値更新</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>11</td>
+							<td>JUMP</td>
+							<td>r0,r0,14</td>
+							<td>14行目へ無条件ジャンプ</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>12</td>
+							<td>ADDI</td>
+							<td>r2,r4,0</td>
+							<td>最小値更新</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>13</td>
+							<td>BLT</td>
+							<td>r4,r3,4</td>
+							<td>r4&lt;r3ならpc = pc+2+ 4</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>14</td>
+							<td>ADDI</td>
+							<td>r3,r0,2</td>
+							<td>次の整数のアドレスを算出</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>15</td>
+							<td>JUMP</td>
+							<td>r0,r0,6</td>
+							<td>loopへ無条件ジャンプ</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>16</td>
+							<td>(END)</td>
+							<td>終了</td>
+							<td></td>
+						</tr>
+					</table>
+
+
+				</div>
+				<br> <br>
+				<h2>(4)</h2>
+				<p>① 命令フェッチ：プログラムカウンタが示すアドレスの命令を命令レジスタに読み込む</p>
+				<p>②
+					命令デコード：命令レジスタの命令を解読し、op1を書き込みレジスタ、op2を読み込みレジスタに指定して該当するレジスタの値を読み込みALUに入力する。IMは直接ALUに入力する。</p>
+				<p>③ 実行：命令フィールドの示す処理を実行する。</p>
+				<p>④ 書き込み：書き込みレジスタに指定したレジスタに実行結果を書き込む。</p>
+			</div>
+
+
+
+
+
+		</div>
+</body>
+</html>
+

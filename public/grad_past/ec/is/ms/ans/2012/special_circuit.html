@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>電気通信大学大学院 情報システム学研究科 2012年度 専門科目 電気系</title>
+<!--#include virtual="/common/header.html" -->
+</head>
+<body>
+<!--#include virtual="/common/navbar.html" -->	
+
+	<div class="container well well-lg" style="background: red well">
+		<h3>電気通信大学大学院 情報システム学研究科 2012年度 専門科目 電気系</h3>
+		<hr />
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">問題2</h3>
+			</div>
+			<div class="panel-body">
+				<h2>①</h2>
+				<h3>(2)</h3>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>X3</td>
+							<td>X2</td>
+							<td>X1</td>
+							<td>X0</td>
+							<td>G</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1a</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1a</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1a</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1a</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1a</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1a</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1a</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1a</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+					</table>
+				</div>
+				<br> <br>
+
+				<h3>(2)</h3>
+				<p>真理値表より、</p>
+				<p>G = ((X3)*X2*(X1)*X0)</p>
+				<p>+(¬(X3)*X2*X1*¬(X0))</p>
+				<p>+(¬(X3)*X2*X1*X0)</p>
+				<p>+(X3*¬(X2)*¬(X1)*¬(X0))</p>
+				<p>+(X3*¬(X2)*¬(X1)*X0)</p>
+				<p>+(X3*¬(X2)*X1*¬(X0))</p>
+				<p>+(X3*¬(X2)*X1*X0)</p>
+				<p>+(X3*X2*¬(X1)*¬(X0))</p>
+				<p>+(X3*X2*¬(X1)*X0)</p>
+				<p>+(X3*X2*X1*¬(X0) )</p>
+				<p>+(X3*X2*X1*X0)</p>
+				<br> <br>
+
+				<h3>(3)</h3>
+				<p>(4)でカルノー図から得た簡単化後の式をもとに、くくって結局は(4)の式になることを示せばよい。</p>
+				<br> <br>
+
+				<h3>(4)</h3>
+				<p class="resizeimage">
+					<img src="img/q2_1_4.png" alt="カルノー図">
+				</p>
+				<p>より、</p>
+				<p>G = X3 + (X2*X0) + (X2*X1)</p>
+				<br> <br>
+
+				<h3>(5)</h3>
+				<p>(4)より</p>
+				<p class="resizeimage">
+					<img src="img/q2_1_5.png" alt="回路図">
+				</p>
+
+				<h2>②</h2>
+				<h3>(1)</h3>
+				<p>ミーリーグラフで表すと、</p>
+				<p class="resizeimage">
+					<img src="img/q2_2_1.png" alt="ミーリーグラフ">
+				</p>
+				<br> <br>
+
+				<h3>(2)</h3>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>I</td>
+							<td>S1</td>
+							<td>S0</td>
+							<td>S1’</td>
+							<td>S0’</td>
+							<td>G</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+					</table>
+				</div>
+				<br> <br>
+
+				<h3>(3)</h3>
+				<p class="resizeimage">
+					<img src="img/q2_2_3.png" alt="カルノー図">
+				</p>
+				<br> <br>
+
+				<h3>(4)</h3>
+				<p class="resizeimage">
+					<img src="img/q2_2_4.png" alt="回路図">
+				</p>
+				<br> <br>
+
+				<h3>(5)</h3>
+				<p>4bitのシフトレジスタである。クロックの立ち下がりの度に、Q1=I , Q2=Q1 , Q3=Q2 , Q4=Q3
+					となる。つまりは一つ左隣の出力を、右にシフトするような回路である。</p>
+				<p class="resizeimage">
+					<img src="img/q2_2_5.png" alt="タイミング図">
+				</p>
+				<br> <br>
+
+				<h3>(6)</h3>
+				<p class="resizeimage">
+					<img src="img/q2_2_6.png" alt="回路図">
+				</p>
+				<br> <br>
+
+				<h3>(7)</h3>
+				<p>パターンが2^n bitのとき、(4)の回路の場合はlog n
+					個のFFで目的の回路を構成可能であるため、コストが低い。しかしながら柔軟性が低い上に回路が複雑で、設計が困難な上に少し仕様が変わっただけで回路構成を大きく変更する必要がある。</p>
+				<br>
+				<p>
+					(6)の回路の場合はn個のFFが必要となるため、長いパターンの場合はコストが高くなる欠点があるが、その分柔軟性があり、非常にシンプルで設計しやすく、仕様変更にも対応しやすい。</p>
+			</div>
+		</div>
+
+	</div>
+
+</body>
+</html>
+

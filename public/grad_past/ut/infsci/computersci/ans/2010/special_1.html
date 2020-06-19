@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>東京大学 情報理工学系研究科 コンピュータ科学専攻 2010年度 専門科目Ⅰ</title>
+<!--#include virtual="/common/header.html" -->
+</head>
+<body>
+<!--#include virtual="/common/navbar.html" -->	
+
+	<div class="container well well-lg" style="background: red well">
+		<h3>東京大学 情報理工学系研究科 コンピュータ科学専攻 2012年度 専門科目Ⅰ</h3>
+		<hr />
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">問題3</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<h3>(a)</h3>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td></td>
+							<td>P1残</td>
+							<td>P2残</td>
+							<td>P3残</td>
+						</tr>
+						<tr>
+							<td>P1を５０ミリ秒実行</td>
+							<td>30</td>
+							<td>170</td>
+							<td>200</td>
+						</tr>
+						<tr>
+							<td>P2を５０ミリ秒実行</td>
+							<td>30</td>
+							<td>120</td>
+							<td>200</td>
+						</tr>
+						<tr>
+							<td>P3を５０ミリ秒実行</td>
+							<td>30</td>
+							<td>120</td>
+							<td>150</td>
+						</tr>
+						<tr>
+							<td>P1を30ミリ秒実行</td>
+							<td>0</td>
+							<td>120</td>
+							<td>150</td>
+						</tr>
+						<tr>
+							<td>P2を50ミリ秒実行</td>
+							<td>0</td>
+							<td>70</td>
+							<td>150</td>
+						</tr>
+						<tr>
+							<td>P3を50ミリ秒実行</td>
+							<td>0</td>
+							<td>70</td>
+							<td>100</td>
+						</tr>
+						<tr>
+							<td>P2を50ミリ秒実行</td>
+							<td>0</td>
+							<td>20</td>
+							<td>100</td>
+						</tr>
+						<tr>
+							<td>P3を50ミリ秒実行</td>
+							<td>0</td>
+							<td>20</td>
+							<td>50</td>
+						</tr>
+						<tr>
+							<td>P2を20ミリ秒実行</td>
+							<td>0</td>
+							<td>0</td>
+							<td>50</td>
+						</tr>
+						<tr>
+							<td>P2を50ミリ秒実行</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+					</table>
+				</div>
+				<br> <br>
+				<h3>(b)</h3>
+				<p>P1:180ミリ秒</p>
+				<p>P2:400ミリ秒</p>
+				<p>P3:450ミリ秒</p>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<h3>(a)</h3>
+				<p>T1 = C1 + Q*[C1/Q]*(N-1)</p>
+				<br> <br>
+
+				<h3>(b)</h3>
+				<p>小数点切り上げを【】とする。</p>
+				<p>T2 = T1 + { C2 ? Q(【C1/Q】-1 ) } + [{ C2 ? Q(【C1/Q】-1 )
+					}/Q]*Q*(N-2)</p>
+				<br> <br>
+
+				<h3>(c)</h3>
+				<p>i = 1ならば、 T1 = C1 + Q*[C1/Q]*(N-1)</p>
+				<p>i &gt;= 2 Ti = Ti-1 + { Ci ? Q(【Ci-1/Q】-1 ) } + [{ Ci ?
+					Q(【Ci-1/Q】-1 ) }/Q]*Q*(N-2)</p>
+				<p>※(b)を流用？</p>
+
+			</div>
+		</div>
+
+	</div>
+
+</body>
+</html>
+

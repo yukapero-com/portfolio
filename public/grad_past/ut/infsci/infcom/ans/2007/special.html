@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>東京大学 情報理工学系研究科 電子情報学専攻 2007年度 専門科目</title>
+<!--#include virtual="/common/header.html" -->
+</head>
+<body>
+<!--#include virtual="/common/navbar.html" -->	
+
+	<div class="container well well-lg" style="background: red well">
+		<h3>東京大学 情報理工学系研究科 電子情報学専攻 2007年度 専門科目</h3>
+		<hr />
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第2問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<p>・データハザード</p>
+				<p>先行命令と後続命令の間にデータ資源の依存関係によって、ストールせざるを得なくなるハザード。フロー依存、出力依存、逆依存が存在し、出力依存と逆依存はレジスタリネーミングによって解消可能。</p>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<p>・遅延分岐</p>
+				<p>分岐命令の直後に、分岐しようがしまいが必ず実行するような命令郡を置くことで、ストールを防ぐことが可能。分岐先が決まるまで、他の命令をさせておく方法である。</p>
+				<br> <br>
+
+				<h2>(3)</h2>
+				<p>・状態：S1S0</p>
+				<p>・入力：分岐が成立した場合に１、不成立の場合に０を入力するI</p>
+				<p>・出力：分岐が成立すると予測する場合に１、不成立と予測する場合に０を出力するO</p>
+				<br>
+				<p>00,01 → 不成立と予測</p>
+				<p>10,11 → 成立と予測</p>
+				<br>
+				<p align="center">真理値表</p>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>I</td>
+							<td>S1</td>
+							<td>S0</td>
+							<td>nextS1</td>
+							<td>nextS0</td>
+							<td>O</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+					</table>
+				</div>
+
+				<br>
+
+				<p class="resizeimage">
+					<img src="img/q2_3_1.png" alt="カルノー図（S1）">
+				</p>
+				<p class="resizeimage">
+					<img src="img/q2_3_2.png" alt="カルノー図（S0）">
+				</p>
+				<p class="resizeimage">
+					<img src="img/q2_3_3.png" alt="カルノー図（O）">
+				</p>
+				<br>
+				<p style="color: red">※IをDFFのクロック入力に入れるのを忘れてた。</p>
+				<p class="resizeimage">
+					<img src="img/q2_3_4.png" alt="回路図">
+				</p>
+				<br> <br>
+
+				<h2>(4)</h2>
+				<p>状態が01の状態で</p>
+				<p>成立、不成立、成立、不成立、成立….</p>
+				<p>というように成立と不成立が交互に発生した場合。</p>
+				<p>同様に状態が10の状態で、</p>
+				<p>不成立、成立、不成立、成立、不成立….</p>
+				<p>という場合。</p>
+				<br>
+				<p></p>
+				<p>このように成立と予測する状態と、不成立と予測する状態の間で、交互に予測とは逆であった場合である。</p>
+				
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
+

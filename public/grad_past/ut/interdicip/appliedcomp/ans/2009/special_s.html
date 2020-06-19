@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>東京大学大学院 学際情報学府学際情報学専攻 総合分析情報学コース 2009年度 夏季募集 専門科目</title>
+<!--#include virtual="/common/header.html" -->
+</head>
+<body>
+<!--#include virtual="/common/navbar.html" -->	
+
+	<div class="container well well-lg" style="background: red well">
+		<h3>
+			東京大学大学院 学際情報学府学際情報学専攻 総合分析情報学コース<br>2009年度 夏季募集 専門科目
+		</h3>
+		<hr />
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第2問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<p>F2 = F0 + F1 = 0 + 1 = 1</p>
+				<p>F3 = F1 + F2 = 1 + 1 = 2</p>
+				<p>F4 = F2 + F3 = 1 + 2 = 3</p>
+				<p>より、</p>
+				<p>F5 = F3 + F4 = 2 + 3 = 5</p>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<p>C(fib1(n)) で fib1(n) の計算量を表すものとする。</p>
+				<p>fib1(0) は比較が1回だけなので C(fib1(0)) = 1</p>
+				<p>fib1(1) は比較が2回だけなので C(fib1(1)) = 2</p>
+				<p>n &gt; 1 ならば fig1(n) は比較2回，メソッド呼び出し2回，演算1回の5回となるので、</p>
+				<p>C(fib1(n)) = C(fib1(n-1)) + C(fib1(n-2)) + 5</p>
+				<p>が成り立つ。</p>
+				<p>この方程式を解くと</p>
+				<p>C(fib1(n)) = ((1 + sqrt(5)) / 2) C(fib1(n-1))</p>
+				<p>なる。ここで，sqrt(5) は 5 の平方根を表すものとする。</p>
+				<p>故に，</p>
+				<p>C(fib1(n)) = ((1 + sqrt(5)) / 2)^(n-1) * 2</p>
+				<p>となり，fib1(n) の計算量はO((1 + sqrt(5)) / 2)^(n-1))</p>
+				<br> <br>
+
+				<h2>(3)</h2>
+				<p>積み上げ式ではO(n)で計算可能。</p>
+				<pre>
+int fib(int n){
+	if(n==0)return 0;
+	if(n==1)return 1;
+
+	int tmpA = 0 , tmpB = 1 , total=0;
+	for(int i=2;i&lt;=n;i++){
+		total = tmpA+tmpB;
+		tmpA = tmpB;
+		tmpB = total;
+	}
+	return total;
+}
+</pre>
+				<p>末尾再帰関数に変えてもO(n)</p>
+				<br>
+				<p>行列を用いるとO(log n)で解くことが可能。</p>
+			</div>
+		</div>
+
+		<br> <br> <br> <br>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第3問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<p>高速かつ大容量の記憶装置を作ることは困難であるが、高速だが小容量、低速だが大容量の記憶装置を作ることは容易である。この逆の特徴を持ったそれぞれの記憶装置を組み合わせることで、実質的に高速で大容量の記憶装置を作ることが可能であることから用いられている。一般的にプロセッサに近いほど高速で小容量。遠いほど低速で大容量となっている。</p>
+				<p>メモリにアクセスする度に低速大容量の記憶装置にアクセスしたのでは効率が悪い。そこで、よく使うデータは高速小容量の記憶装置においておき、普段はそちらをアクセスすることでアクセス時間を減らすことが可能。</p>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<p>1次キャッシュ(C1)： 1 * 10^-9 s ヒット率：85％ ミス率：15％</p>
+				<p>2次キャッシュ(C2)：10 * 10^-9 s ヒット率：90％ ミス率：10％</p>
+				<p>主記憶(M)：70 * 10^-9 s ヒット率：95％ ミス率：5％</p>
+				<p>HDD(H)：1 * 10^-3 s</p>
+				<br>
+				<p></p>
+				<p>・平均アクセス時間</p>
+				<p>( 0.85 * C1 ) //C1ヒット</p>
+				<p>+( 0.15 * 0.90 * C2) //C1ミス、C2ヒット</p>
+				<p>+( 0.15 * 0.10 * 0.95 * M ) //C1 , C2 ミス、Mヒット</p>
+				<p>+( 0.15 * 0.10 * 0.05 * H ) //C1 , C2 , H ミス、Hヒット</p>
+				<p>= 753.1975 ns</p>
+				<p>よって約750ns</p>
+				<br> <br>
+
+				<h2>(3)</h2>
+				<p>アドレスマッピングは大きく分けて３種類存在する。</p>
+				<p>・ダイレクトマッピング</p>
+				<p>主記憶のブロック番号から、キャッシュでのブロック番号が一意に決まる方式。</p>
+				<p>・フルアソシアティブ方式</p>
+				<p>キャッシュの全てのブロック番号が、主記憶の任意のブロック番号を格納可能である方式。</p>
+				<p>・セットアソシアティブ方式</p>
+				<p>主記憶のブロック番号から、キャッシュでのブロック番号がN個に決まる方式。N個単位にまとめたブロックをセット（連想度）と呼び、N
+					way セットアソシアティブ方式と呼ぶ。</p>
+				<p>Nが1の時はダイレクトマッピング方式になり、Nがキャッシュのブロック数と等しい場合はフルアソシアティブマッピング方式になる。</p>
+				<br>
+				<p>書き込み方式は２種類存在する。</p>
+				<p>・ライトスルー方式</p>
+				<p>キャッシュに書き込むのと同時にメモリにも書き込む方式。メモリはキャッシュに比べると低速なので、書込み時にはキャッシュのアクセス速度の速さの恩恵が受けられない。</p>
+				<p>・ライトバック方式</p>
+				<p>キャッシュからデータが追い出される時にメモリにも書き込む方式。キャッシュミスしない限り書き込み時にもメモリアクセスの必要は無いため高速であるが、追い出し時はライトスルー方式に比べると追い出し処理によるオーバーヘッドにより低速。</p>
+
+			</div>
+		</div>
+
+		<br> <br> <br> <br>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第4問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<p>関数の末尾に関数だけの再帰があるもの。→戻ってくる必要無し。関数実行のオーバーヘッドを削減可能。</p>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<p>末尾再帰にすると、</p>
+				<pre>
+int factorial(int a , int b){
+	if(b==0) return a;
+	else return factorial(a*b,b-1);
+}
+</pre>
+				<p>となる。呼び出し時の引数aは1にする。末尾再帰のプログラムはfor文に直すことも可能。</p>
+				<pre>
+static int factorial_3(int n){
+	int result = 1;	
+	for(int i = n ; 1 &lt; i ; i--)
+		result *= i;
+	
+return result;			
+}
+</pre>
+
+			</div>
+		</div>
+
+		<br> <br> <br> <br>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第5問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<p>複数のプロセスが互いに他のプロセスが要求する資源を占有しながら、他のプロセスの占有している資源獲得のために待ち状態に入っている状態であり、処理が停止すること。</p>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<p>哲学者全員が左のフォークを取った状態。右隣の人が各哲学者が食事をするのに必要なフォークを保持しているために開放されるまで待ち状態に入るが、哲学者全員が待ち状態になるためにこのままでは全員永遠に食事を開始出来ない。</p>
+				<br> <br>
+
+				<h2>(3)</h2>
+				<p>哲学者が一人でもフォークを取得中の場合は、他の哲学者はその哲学者が２つのフォークを取り終わるまで待ち状態にする排他制御によって回避可能。</p>
+				<p>つまりはある哲学者が左のフォークを取るのと、右のフォークを取る処理をクリティカルセクションとして、この間はプリエンプションを禁止すればよい。実現にはモニタ構造が適する。</p>
+
+			</div>
+		</div>
+
+		<br> <br> <br> <br>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第7問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<p align="center">1bit比較器</p>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>X</td>
+							<td>Y</td>
+							<td>X&gt;Y</td>
+							<td>X&lt;Y</td>
+							<td>X=Y</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+					</table>
+				</div>
+				<br>
+				<p>この論理回路を４つ並べ、それぞれにX0,X1…とY0,Y1…を入力とすればよい。</p>
+				<p class="resizeimage">
+					<img src="img_s/q7_1_1.png" alt="1bit比較器">
+				</p>
+				<p>以上の1bit比較器を組み合わせると、以下のように簡単に2bit比較器を設計可能。</p>
+				<p class="resizeimage">
+					<img src="img_s/q7_1_2.png" alt="2bit比較器">
+				</p>
+				<p>同様にこの2bit比較器を同様に２つ組み合わせることで、4bit比較器が完成する。(省略)</p>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<p>(X&gt;Y)in , (X&lt;Y)in , (X=Y)in を上位からの出力とすると、</p>
+				<p class="resizeimage">
+					<img src="img_s/q7_2_1.png" alt="拡張可能4bit比較器">
+				</p>
+			
+			</div>
+		</div>
+
+
+	</div>
+</body>
+</html>
+

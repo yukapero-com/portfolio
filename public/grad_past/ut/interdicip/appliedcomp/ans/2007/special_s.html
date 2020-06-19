@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>東京大学大学院 学際情報学府学際情報学専攻 総合分析情報学コース 2007年度 夏季募集 専門科目</title>
+<!--#include virtual="/common/header.html" -->
+</head>
+<body>
+<!--#include virtual="/common/navbar.html" -->	
+
+	<div class="container well well-lg" style="background: red well">
+		<h3>
+			東京大学大学院 学際情報学府学際情報学専攻 総合分析情報学コース<br>2007年度 夏季募集 専門科目
+		</h3>
+		<hr />
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第2問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<p class="resizeimage">
+					<img src="img_s/q2_1_1.png" alt="アルファベット順">
+				</p>
+				<br>
+				<p class="resizeimage">
+					<img src="img_s/q2_1_2.png" alt="逆アルファベット順">
+				</p>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<p class="resizeimage">
+					<img src="img_s/q2_2.png" alt="深さ優先探索">
+				</p>
+				<br> <br>
+
+				<h2>(3)</h2>
+				<p>・横型探索</p>
+				<p>開始ノードに近いノードから探索する方法。待ち行列により実装可能。</p>
+				<p>１,開始ノードを待ち行列に加える。</p>
+				<p>２,待ち行列が空なら、探索失敗として探索終了</p>
+				<p>３,待ち行列の先頭ノードを取り除く。</p>
+				<p>４,取り除いたノードがゴールノードなら探索完了。</p>
+				<p>５,取り除いたノードに子があるなら、その子ノードを待ち行列の後ろに追加する。</p>
+				<p>６,２に戻る。</p>
+				<br>
+				<p>・縦型探索</p>
+				<p>目的ノードが見つかるか、子ノードが無い行き止まりのノードまで進み続ける探索法。スタックにより実装可能。</p>
+				<p>1,開始ノードをスタックする。</p>
+				<p>2,スタックが空なら、探索失敗として探索終了</p>
+				<p>3,スタックからノードをポップする。</p>
+				<p>4,ポップしたノードが目的ノードなら探索完了。</p>
+				<p>5,ポップしたノードに子ノードがあるなら全てスタックする。</p>
+				<p>6,2に戻る</p>
+				<br> <br>
+
+				<h2>(4)</h2>
+				<p>●横型探索</p>
+				<p>○利点</p>
+				<p>・浅いノードに目的のノードがあることが分かっている場合は効率がよい。</p>
+				<p>・確実に解を見つけられる。</p>
+				<p>○欠点</p>
+				<p>・記憶効率が酷く悪い。</p>
+				<p>・目的ノードが深ければ深いほど探索効率が悪い。</p>
+				<p>・分枝限定法などの探索高速化手法が実装困難</p>
+				<br>
+				<p>●縦型探索</p>
+				<p>○利点</p>
+				<p>・記憶領域の効率が最小限で済む。</p>
+				<p>・深いノードに目的ノードがあることが分かっている場合は効率がよい。</p>
+				<p>・分枝限定法などの探索高速化アルゴリズムを容易に実装可能。</p>
+				<p>○欠点</p>
+				<p>・目的ノードが探索箇所の逆側にあればあるほど例え浅くとも発見が遅い。</p>
+			</div>
+		</div>
+
+		<br> <br> <br> <br>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第3問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<p>関数を再帰的に呼び出す度にデータをコールスタックに退避しなければならないため、退避時間が掛かると共に記憶領域を圧迫する。限界を越えるとスタックオーバーフローが発生する。</p>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<p>末尾再帰関数に直すと、</p>
+				<pre>int factorial(int a, int b){
+	if(b==0)return a;
+	return factorial(a*b,b-1);
+}</pre>
+				<p>※factorial(1,10) → 10!</p>
+				<br> <br>
+
+				<h2>(3)</h2>
+				<pre>int gcd(int x, int y){
+int tmp;
+loop:
+	if(y == 0) return x;
+	tmp = x;
+	x = y;
+	y = tmp%y;
+goto loop;
+}
+</pre>
+			</div>
+		</div>
+
+
+		<br> <br> <br> <br>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第4問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<h3>(a)</h3>
+				<p>共有ネットワーク上の、別のコンピュータ上にあるサブルーチンを実行することを可能にする技術。このとき、ローカルメモリにあるサブルーチンを実行するときのように、遠隔にあることを意識せずに呼び出せる。引数を目的のサブルーチンを持つコンピュータに送信した後、実行させ、結果のみを受信する。</p>
+				<br> <br>
+
+				<h3>(b)</h3>
+				<p>各ノードの分散したメモリ領域を仮想的に１つとみなして大容量のメモリ領域を実現する方式。</p>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<p>クラスタは自宅内のコンピュータだったり、大学内の全てのコンピュータだったり、東京都内全てのコンピュータだったりその括り方は様々であるが、どのように括るにせよ、クラスタとして括られた１つ以上のコンピュータを仮想的に１つのコンピュータのように振舞わせる技術。クラスタに仕事を依頼すれば、クラスタ内での様々な細かい処理はクラスタ自身に任せてよい。1台が障害などで停止してもシステム全体が止まることはなく、処理を続行したまま修理や交換が行える。</p>
+				<br> <br>
+
+				<h2>(3)</h2>
+				<p>通常広いネットワークを介して複数のコンピュータを結ぶことで、仮想的な高性能コンピュータを構成し、ユーザーはそこから必要なだけの処理能力や、記憶容量を取り出して使うシステム。例え１台１台の性能が低くても、並列処理を行わせることで高い処理能力を実現する。</p>
+
+			</div>
+		</div>
+
+		<br> <br> <br> <br>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第5問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<p>全体としては一つの目的のためのプログラムを、複数の処理の並行した流れとしてとらえたときの、一つ一つの処理のことをスレッドと呼ぶ。</p>
+				<p>e.g 多重スレッドプログラミング</p>
+				<p>メールソフトウェアはメールを書きながら、メールが着ているかどうかを常にチェックしていて欲しい。</p>
+				<p>スレッド１：メール入力スレッド</p>
+				<p>スレッド２：メール着信監視スレッド</p>
+				<br>
+				<p>プロセスが複数の処理を平行して実行したい場合はスレッドを生成し、プロセスが持つ資源、仮想メモリ空間を使って処理を行う。スレッドは親であるプロセスの資源を使って仕事をする子供のようなものである。</p>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<p>不可分操作とも言う。以下の２つの条件を満たす命令のことである。</p>
+				<p>・アトミック命令の全操作が完了するまで、途中の状態を他のプロセスが観測することが出来ない。</p>
+				<p>・操作が失敗したらアトミック命令を行う前の状態に戻る。</p>
+				<br> <br>
+
+				<h2>(3)</h2>
+				<p>・a,b,c,d,e</p>
+				<p>・a,b,d,c,e</p>
+				<p>・a,d,b,c,e</p>
+				<p>・d,a,b,c,e</p>
+				<p>・a,b,d,e,c</p>
+				<p>・a,d,b,e,c</p>
+				<p>・d,a,b,e,c</p>
+				<p>・a,d,e,b,c</p>
+				<p>・d,a,e,b,c</p>
+				<p>・d,e,a,b,c</p>
+				<br> <br>
+
+				<h2>(4)</h2>
+				<p>・P(S)</p>
+				<p>Sのセマフォア変数の値が１以上であれば、デクリメントする。（資源の確保）</p>
+				<p>０であればSの待ち行列に入る。</p>
+				<p>・V(S)</p>
+				<p>Sの待ち行列にプロセスがあれば、先頭のプロセスを実行可能状態にする。</p>
+				<p>なければSの値をインクリメントする。（資源の解放）</p>
+				<br>
+				<p>P(S)とV(S)はアトミック命令なので、処理途中にプリエンプションが発生することは無い。この性質を利用して排他制御を実現。</p>
+				<br> <br>
+
+				<h2>(5)</h2>
+				<p>全てのセマフォ変数は０に初期化されていると仮定するとし、各スレッドの処理を擬似コードで表せば</p>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td><p>・T1</p>
+								<p>S1()の処理を実行</p>
+								<p>V(S2),V(S3)</p></td>
+							<td><p>・T2</p>
+								<p>P(S2)</p>
+								<p>S2()の処理を実行</p>
+								<p>V(S4)</p></td>
+						</tr>
+						<tr>
+							<td><p>・T3</p>
+								<p>P(S3)</p>
+								<p>S3()の処理を実行</p>
+								<p>V(S5),V(S6)</p></td>
+							<td><p>・T4</p>
+								<p>P(S4)</p>
+								<p>S4()の処理を実行</p>
+								<p>V(S7)</p></td>
+						</tr>
+						<tr>
+							<td><p>・T5</p>
+								<p>P(S5)</p>
+								<p>S5()の処理を実行</p>
+								<p>V(S7)</p></td>
+							<td><p>・T6</p>
+								<p>P(S6)</p>
+								<p>S6()の処理を実行</p></td>
+						</tr>
+						<tr>
+							<td><p>・T7</p>
+								<p>P(S7)</p>
+								<p>P(S7)</p>
+								<p>S7()の処理を実行</p>
+								<p>V(S8)</p></td>
+							<td><p>・T8</p>
+								<p>P(S8)</p>
+								<p>P(S8)</p>
+								<p>S8()の処理を実行</p></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<br> <br> <br> <br>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第6問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<p>TCP（Transmission Control Protocol）</p>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<p>相手の受信許容量を示すウィンドウサイズによって送信料を調整することにより、バッファが溢れることを防ぐ。</p>
+				<br> <br>
+
+				<h2>(3)</h2>
+				<p>最初は極小サイズのパケットを送信し、ウィンドウサイズまで順次サイズを倍にして送信するスロースタート。</p>
+				<br> <br>
+
+				<h2>(4)</h2>
+				<p>スリーウェイハンドシェイク</p>
+				<p>クライアント→SYN1 ACK0→サーバー</p>
+				<p>サーバー→SYN1 ACK1→クライアント</p>
+				<p>クライアント→SYN0 ACK1→サーバー</p>
+				<p>(a) ACK SYN</p>
+				<p>(b) ACK</p>
+				<p>(c) 4</p>
+				<p>(d) 5</p>
+				<p>(e) 1</p>
+				<p>(f) FIN</p>
+				<p>(g) ACK FIN</p>
+				<br> <br>
+
+				<h2>(5)</h2>
+				<p>輻輳ウィンドウ。輻輳制御のために使用され、送信可能な最大容量を示す。</p>
+				<br> <br>
+
+				<h2>(6)</h2>
+				<p>AIMDアルゴリズムを使用するならば、パケットロスが発生するとcwnd*=1/2、つまり半減させる。それ以降はウィンドウサイズの1/2までは通常通りサイズを倍にしながら送信するが、1/2を超えたら１ずつ増加させるようにする。</p>
+				<p>これを輻輳回避と呼ぶ。</p>
+				<br> <br>
+
+				<h2>(7)</h2>
+				<p>
+					輻輳が発生し、ルータのバッファを超えるようなパケットが来てしまった場合は、溢れた分は破棄せざるを得ない。TCPならまだしも、UDPは輻輳制御やフロー制御などの信頼性を確保するための機能を持っていないため、破棄される可能性が比較的高い。</p>
+				<br>
+				<p>※いくつ中継するか分からないルーターとクライアントで一々フロー制御をしていては複雑化し過ぎてしまうため、ネットワーク上の輻輳は端末側で制御するようになっている。</p>
+
+			</div>
+		</div>
+
+		<br> <br> <br> <br>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第7問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>A1</td>
+							<td>A0</td>
+							<td>B3</td>
+							<td>B2</td>
+							<td>B1</td>
+							<td>B0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+					</table>
+				</div>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<p class="resizeimage">
+					<img src="img_s/q7_2.png" alt="デコーダー">
+				</p>
+				<br> <br>
+
+				<h2>(3)</h2>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>B3</td>
+							<td>B2</td>
+							<td>B1</td>
+							<td>B0</td>
+							<td>D0</td>
+							<td>D1</td>
+							<td>Cin</td>
+							<td>E</td>
+							<td>Cout</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>*</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>*</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>*</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>*</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>*</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>*</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>*</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>*</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>*</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>*</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>*</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>*</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+					</table>
+				</div>
+				<br>
+				<p style="color:red">※E出力にOR書き忘れ</p>
+				<p class="resizeimage">
+					<img src="img_s/q7_3.png" alt="ALU回路">
+				</p>
+			</div>
+		</div>
+
+
+	</div>
+</body>
+</html>
+

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>東京大学大学院 学際情報学府学際情報学専攻 総合分析情報学コース 2011年度 夏季募集 専門科目</title>
+<!--#include virtual="/common/header.html" -->
+</head>
+<body>
+<!--#include virtual="/common/navbar.html" -->	
+
+	<div class="container well well-lg" style="background: red well">
+		<h3>
+			東京大学大学院 学際情報学府学際情報学専攻 総合分析情報学コース<br>2011年度 夏季募集 専門科目
+		</h3>
+		<hr />
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第2問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<p>まず円盤の枚数が２枚の場合を考える。このとき上から円盤の番号を1,2とする。</p>
+				<p>1. 1をAからCに移動する。</p>
+				<p>2. 2をAからBに移動する。</p>
+				<p>3. 1をCからBに移動する。</p>
+				<p>以上の3手順が2枚の場合のハノイの塔のアルゴリズムである。これを一般化する。</p>
+				<p>N枚の円盤のうち1?N-1番の円盤をPとし、N番目の円盤をQとすると、円盤が2枚の場合と同じ問題になる。よって上記操作をHanoi(n,A,B,C)→（ｎ個の円盤を、AからBにCを補助的に使って移動する）と表すとすれば、</p>
+				<p>もしnが０より大きい時｛</p>
+				<p>Hanoi(n-1,A,C,B)</p>
+				<p>出力（N番の円盤をAからBに移動）</p>
+				<p>Hanoi(n-1,C,B,A)</p>
+				<p>｝</p>
+				<p>と表すことが出来る。</p>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<pre>
+void Hanoi(int n, char A, char B, char C){
+	if(n>0){
+		Hanoi(n-1,A,C,B);
+		Printf( “ %c番の円盤 を %c から、 %c へ移動する。” , n,A,B);
+		Hanoi(n-1,C,B,A);
+}
+}
+
+int main(){
+	Hanoi(n,A,B,C);
+} 
+</pre>
+				<br> <br>
+
+				<h2>(3)</h2>
+				<p>移動の回数をM(N)と表すとすれば、</p>
+				<p>M(1) = 1</p>
+				<p>N &gt; 1 のとき、</p>
+				<p>M(N) = M(N-1) + 1 + M(N-1)</p>
+				<p>M(N) = 2*M(N-1) + 1</p>
+				<p>( M(N) + 1 )= 2*( M(N-1) + 1)</p>
+				<p>M(N) + 1 = 2^n</p>
+				<p>M(N) = 2^n - 1</p>
+				<br>
+				<p></p>
+				<p>よってM(10) = 2^10 -1 = 1024-1=1023</p>
+				<br>
+				<p></p>
+				<br> <br>
+
+				<h2>(4)</h2>
+				<pre>
+void F(int x, int y){
+	int a,b;
+	while(true){	
+		…..S….
+		x = a;
+		y = b;
+	}
+}
+</pre>
+
+			</div>
+		</div>
+
+		<br> <br> <br> <br>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第3問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<p>ソフトウェアの設計や開発において、操作手順よりも操作対象に重点を置いた考え方。関連するデータの集合と、そのデータに対するメソッドと呼ばれる手続きをオブジェクトと呼ばれる一つのまとまりとして管理する。このオブジェクトの組み合わせによってソフトウェアを構築する。</p>
+				<br> <br>
+				<h2>(2)</h2>
+				<h3>(a)</h3>
+				<p>あるクラスが、複数のクラスの性質を継承すること。継承した複数のクラスの変数、メソッドなどのメンバを、再度宣言することなく再利用可能。</p>
+				<br> <br>
+
+				<h3>(b)</h3>
+				<p>抽象クラスは実装の無い複数の抽象メソッドのみ持っていて、自身のオブジェクトを生成することは出来ないクラス。抽象クラスを継承するサブクラスで、未実装の抽象メソッドを実装する。サブクラスが持つべきメソッドを保証することが可能。</p>
+				<br> <br>
+
+				<h3>(c)</h3>
+				<p>C言語での純粋仮想関数を例に説明する。スーパークラスで宣言する未実装の関数のことで、virtual void
+					kansu_name() = 0;と書くことで宣言可能。宣言したクラスを継承する、派生クラスで再定義されることを意味する。</p>
+				<br> <br>
+
+				<h3>(d)</h3>
+				<p>仮想関数とは、スーパークラスの派生クラスで再定義可能である関数のことを示す。</p>
+				<p>継承を実現するための仕組みであり、仮想関数は必ず仮想関数テーブルを持つ。仮想関数が呼び出されると、生成された仮想関数テーブルから関数名に対応するメモリアドレスにジャンプする。</p>
+				<br> <br>
+
+				<h3>(e)</h3>
+				<p>アヒルのように見えて、アヒルのように鳴くならアヒルとみなすという考えをプログラム言語に取り入れたもの。オブジェクトがあるインタフェースの全てのメソッドを持っているなら、例えそのクラスがそのインタフェースを継承してなくとも、そのインタフェースを実装しているとみなす。C++ならテンプレートで実装可能。</p>
+				<br> <br>
+
+				<h2>(3)(4)</h2>
+				<p>無解答</p>
+
+			</div>
+		</div>
+
+		<br> <br> <br> <br>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第4問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<h3>(a)</h3>
+				<p>実行中のプロセスから実行権を強制的に剥奪し、割り込みの要因に応じた処理を開始すること。ソフトウェア的な要因から起こるソフトウェア割り込み。ハードウェア的な要因から起こるハードウェア割り込みがある。</p>
+				<br> <br>
+
+				<h3>(b)</h3>
+				<p>サブルーチンは予め予期されたものなのに対し、割り込み処理は予期されたものではなく、何をしていようと突然発生すること。</p>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<h3>(a)</h3>
+				<p>LOAD/STORE命令の直後に、LOAD/STORE命令で読み込んだ値を使うような場合はフォワーディング機構を用いたとしてもストールは避けることは不可能であり、つまりは3番目のADD命令以降続けてデータハザードが発生することが考えられる。</p>
+				<br>
+				<p></p>
+				<p>１→３ のR1のフロー依存</p>
+				<p>２→３ のR2のフロー依存</p>
+				<p>・・・</p>
+				<br> <br>
+
+				<h3>(b)</h3>
+				<p>LOAD/STORE命令の直後に、LOAD/STORE命令で読み込んだ値を使わないようにすればよい。</p>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>LOAD</td>
+							<td>R1 S0(4)</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>LOAD</td>
+							<td>R2 S0(8)</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>LOAD</td>
+							<td>R4 S(16)</td>
+							<td>//R2では無く、使われていないレジスタR4にS(16)を前もってロード</td>
+						</tr>
+						<tr>
+							<td>ADD</td>
+							<td>R3 R1 R2</td>
+							<td>//2番目のロード命令とADD命令の間に命令が入ったことにより、ストールすることなく実行可能。</td>
+						</tr>
+						<tr>
+							<td>STORE</td>
+							<td>S0(0) R3</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>ADD</td>
+							<td>R3 R1 R4</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>STORE</td>
+							<td>S0(12) R3</td>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<br> <br> <br> <br>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第5問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<p>●：到着＆処理開始</p>
+				<p>○：到着&待ち状態</p>
+				<p>E：実行状態</p>
+				<p>空白：待ち状態</p>
+				<p>とすると、</p>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td></td>
+							<td>0</td>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+							<td>4</td>
+							<td>5</td>
+							<td>6</td>
+							<td>7</td>
+							<td>8</td>
+							<td>9</td>
+							<td>10</td>
+							<td>11</td>
+							<td>12</td>
+							<td>13</td>
+							<td>14</td>
+							<td>15</td>
+							<td>16</td>
+							<td>17</td>
+							<td>18</td>
+						</tr>
+						<tr>
+							<td>A</td>
+							<td>●</td>
+							<td>E</td>
+							<td>E</td>
+							<td>E</td>
+							<td>E</td>
+							<td>E</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>B</td>
+							<td></td>
+							<td>○</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>E</td>
+							<td>E</td>
+							<td>E</td>
+							<td>E</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>C</td>
+							<td></td>
+							<td></td>
+							<td>○</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>E</td>
+							<td>E</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+
+				<p>よって</p>
+				<p>応答時間は A : 6 , B : 9 , C : 10 なので、平均すると 25/3 となる。</p>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<p>プリエンプションが無い場合は到着時間順と全く同じ応答時間になる。よって25/3</p>
+				<br> <br>
+
+				<h2>(3)</h2>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td></td>
+							<td>0</td>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+							<td>4</td>
+							<td>5</td>
+							<td>6</td>
+							<td>7</td>
+							<td>8</td>
+							<td>9</td>
+							<td>10</td>
+							<td>11</td>
+							<td>12</td>
+							<td>13</td>
+							<td>14</td>
+							<td>15</td>
+							<td>16</td>
+							<td>17</td>
+							<td>18</td>
+						</tr>
+						<tr>
+							<td>A</td>
+							<td>●</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>E</td>
+							<td>E</td>
+							<td>E</td>
+							<td>E</td>
+							<td>E</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>B</td>
+							<td></td>
+							<td>●</td>
+							<td></td>
+							<td></td>
+							<td>E</td>
+							<td>E</td>
+							<td>E</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>C</td>
+							<td></td>
+							<td></td>
+							<td>●</td>
+							<td>E</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+				<p>応答時間 A : 12 , B:6 , C : 2 より、平均応答時間は20/3となる。</p>
+				<br> <br>
+
+				<h2>(4)</h2>
+				<p>(2)は2回のプリエンプションがあるので 25/3 + 2s</p>
+				<p>(3)は４回のプリエンプションがあるので 20/3 + 4s</p>
+				<p>25/3 + 2s &gt; 20/3 +4s を解くと、</p>
+				<p>s &lt; 5/6</p>
+				<br> <br>
+
+				<h2>(5)</h2>
+				<p>多重レベルフィードバックスケジューリング方式は近似的に処理時間順スケジューリング方式を実装する方式である。</p>
+				<p>新しいプロセスは最も優先度の高いレベル０の待ち行列に入る。クオンタム切れによるプリエンプションが発生すると、そのプロセスは一つ上のレベルの待ち行列に入る。高レベルのプロセスは、低レベルのプロセスの処理が全て終わるまで実行権は回ってこない。これは、短い時間で終わらないプロセスは長い時間の掛かるプロセスである可能性が高いという経験則に基いている。</p>
+				<p>スタベーションの回避にはエージングが使われている。</p>
+			</div>
+		</div>
+
+		<br> <br> <br> <br>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第6問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<p>・フォワーディング</p>
+				<p>他のホストから受け取ったパケットを別の経路へ向けて再送信すること。これを専門的に行う機器にルーターがある。</p>
+				<p>・ルーティング</p>
+				<p>目的のホストまでパケットを送信する際に、最適な経路を選択して送信すること。ネットワークの境界で、外部からのパケットを自分のネットワークにあるホストへ転送したり、自分のネットワークからのパケットを別のネットワークへ転送したりすることもルーティングと言う。ルータと呼ばれる機器がこの役目を担っている場合が多い。ルーティングは経路の情報をあらかじめネットワーク機器に設定しておくスタティックルーティングと、経路情報を動的に更新するダイナミックルーティングとにわかれる。</p>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<p>dx(y) : xからyへの最短経路のコスト</p>
+				<p>dv(y) : vからyへの最短経路のコスト</p>
+				<p>c(x,v) : 隣接するxからvへのコスト</p>
+				<br>
+				<p></p>
+				<p>dx(y) = c(x,v) + dv(y)</p>
+				<br> <br>
+
+				<h2>(3)</h2>
+				<p>動的ルーティングアルゴリズムの一つ。</p>
+				<p>各ルーターはまず自分のネットワーク名をブロードキャスト。</p>
+				<p>この結果、各ルーターは自分に隣接するルーターの情報を得ることが出来る。</p>
+				<p>次にこの情報をまとめてブロードキャストすると、隣接ルーターのさらに隣接ルーターの情報が得られる。</p>
+				<p>dx(y) = c(x,v) +c(v,a) + c(a,b) + ・・・ + c(f,y)</p>
+				<br> <br>
+
+				<h2>(4)</h2>
+				<p>???</p>
+
+			</div>
+		</div>
+
+		<br> <br> <br> <br>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第7問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<h2>(a)</h2>
+				<p>(B*D)+(B*A)</p>
+				<br> <br>
+
+				<h2>(b)</h2>
+				<p>(A*B)+(A*C)</p>
+				<br> <br>
+
+				<h2>(c)</h2>
+				<p>(¬A*¬C)+(¬B*¬C)+(A*B*C)</p>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<h3>(a)</h3>
+				<h4>(i)</h4>
+				<p class="resizeimage">
+					<img src="img_s/q7_2_a_1.png" alt="2bit偶数パリティチェック回路">
+				</p>
+				<br> <br>
+
+				<h4>(ii)</h4>
+				<p class="resizeimage">
+					<img src="img_s/q7_2_a_2.png" alt="4bit偶数パリティチェック回路">
+				</p>
+				<br> <br>
+
+				<h4>(iii)</h4>
+				<p class="resizeimage">
+					<img src="img_s/q7_2_a_3.png" alt="8bit偶数パリティチェック回路">
+				</p>
+				<br> <br>
+
+				<h3>(b)</h3>
+				<p>入力をI1,I0とし、出力をO3,O2,O1,O0の２進数で表すとすれば、</p>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>I1</td>
+							<td>I0</td>
+							<td>O3</td>
+							<td>O2</td>
+							<td>O1</td>
+							<td>O0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+					</table>
+				</div>
+				<br>
+
+				<p>O3 = I1*I0 , O2 = I1 * ¬I0 , O1 = 0 , O0 = I0 となるので、</p>
+				<p class="resizeimage">
+					<img src="img_s/q7_2_b.png" alt="2bit2乗回路">
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+

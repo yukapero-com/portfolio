@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>東京大学 情報理工学系研究科 電子情報学専攻 2003年度 専門科目</title>
+<!--#include virtual="/common/header.html" -->
+</head>
+<body>
+<!--#include virtual="/common/navbar.html" -->	
+
+	<div class="container well well-lg" style="background: red well">
+		<h3>東京大学 情報理工学系研究科 電子情報学専攻 2003年度 専門科目</h3>
+		<hr />
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第2問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<h3>(1-1)</h3>
+				<p>主記憶は大容量であるがCPUの処理速度と比べるとアクセス速度が比較的低速という欠点があり、CPUがいくら高速でも主記憶がボトルネックとなって性能の向上の足かせとなってしまう。そこでCPUと主記憶の間に小容量であるが高速という特徴を持つキャッシュメモリを間に挟むことにより、２つ合わせて擬似的に高速大容量のメモリを構成する。</p>
+				<br>
+				<h3>(1-2)</h3>
+				<p>主記憶が容量不足になった場合に仮想的に補助記憶装置の記憶領域の一部をメモリの足りなくなった領域を補うように使用することで、補助記憶装置の空き容量が十分確保されていれば論理的に実現可能なアドレス空間を最大限に使用することが可能となる。例えば32bitコンピュータでは約４GBのアドレス空間が使用可能であるが、例え物理的に２GBのメモリしか挿していなかったとしても、残りの２GBは補助記憶装置上に確保することで、４GB分のアドレス空間を使用することが可能になる。ただし補助記憶装置へのアクセスは比較的非常に遅いため、出来る限り使用は避けるべきではある。</p>
+				<br>
+				<p>補助記憶装置を利用して物理メモリ容量以上のメモリ容量を実現する技術。</p>
+				<br>
+				<h3>(1-3)</h3>
+				<p>ソフトウェアで言う連想配列をハードウェア上で実現したもの。一般的なメモリではアドレスを指定すると、そのアドレスに格納されたデータが返ってくるが、連想メモリではデータワードをキーとして全内容からそのデータワードを同時に比較し、検索する。データが見つかれば、そのデータが見つかった場所のアドレスを返す。ハードが非常に複雑になる。</p>
+				<br>
+				<h3>(1-4)</h3>
+				<p>一般的にCPUに近い方からキャッシュメモリ、主記憶、補助記憶装置で構成されており、CPUに近い記憶装置ほど高速で小容量。逆にCPUに遠いほど低速で大容量の記憶装置で構成されている。理想的には高速大容量の記憶装置があればよいが、コスト的にも技術的にも困難であるため、これらの記憶装置を組み合わせることで、擬似的に高速かつ大容量の記憶装置を実現する。</p>
+				<br>
+				<h2>(2)</h2>
+				<h3>(2-1)</h3>
+				<p>z = ( x * Q1 * Q2 * (Q3) ? )</p>
+				<p>Q1’ = (Q1 + Q3) * Q2</p>
+				<p>Q2’ = Q2 xor Q3</p>
+				<p>Q3’ = (Q1 xor Q3) xor x</p>
+				<br> <br>
+
+				<h3>(2-2)</h3>
+				<p>入力：ｘ</p>
+				<p>状態：Q3Q2Q1</p>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>x</td>
+							<td>Q3</td>
+							<td>Q2</td>
+							<td>Q1</td>
+							<td>nextQ3</td>
+							<td>nextQ2</td>
+							<td>nextQ1</td>
+							<td>z</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+					</table>
+				</div>
+				<br>
+				<p class="resizeimage">
+					<img src="img/q2_2_2.png" alt="状態遷移図">
+				</p>
+				<br>
+
+				<h3>(2-3)</h3>
+				<p>101と010のみ統合可能？</p>
+				<p>011や111のような入力後に二度と帰ってくることは無いような状態は無視？分からない。</p>
+			
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
+

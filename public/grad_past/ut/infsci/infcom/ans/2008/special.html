@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>東京大学 情報理工学系研究科 電子情報学専攻 2008年度 専門科目</title>
+<!--#include virtual="/common/header.html" -->
+</head>
+<body>
+<!--#include virtual="/common/navbar.html" -->	
+
+	<div class="container well well-lg" style="background: red well">
+		<h3>東京大学 情報理工学系研究科 電子情報学専攻 2008年度 専門科目</h3>
+		<hr />
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第2問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<p>・構造ハザード</p>
+				<p>先行命令と後続命令の間で同一のハードウェア競合が発生し、後続の命令がストールせざるを得ない状態。資源の多重化により防ぐことが可能。</p>
+				<p>・制御ハザード</p>
+				<p>分岐ハザードとも呼ばれ、分岐後の命令アドレスが分岐命令の実行まで確定しないために後続の命令がフェッチ出来ずにストールせざるを得ない状態。分岐予測や遅延分岐によりある程度は防ぐことが可能。</p>
+				<p>・データハザード</p>
+				<p>先行命令と後続命令の間でデータの依存関係があり、ストールせざるを得なくなる状態。フロー依存、アウトオブオーダ処理の場合は逆依存、出力依存などがあり、逆依存と出力依存はレジスタリネーミングによって解消可能。</p>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<p>▲：構造ハザード</p>
+				<p>×：データハザード</p>
+				<p>★：制御ハザード</p>
+				<br>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>I1</td>
+							<td>F</td>
+							<td>D</td>
+							<td>E</td>
+							<td>M</td>
+							<td>W</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>I2</td>
+							<td></td>
+							<td>F</td>
+							<td>D</td>
+							<td>E</td>
+							<td>M</td>
+							<td>W</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>I3</td>
+							<td></td>
+							<td></td>
+							<td>F</td>
+							<td>×</td>
+							<td>×</td>
+							<td>D</td>
+							<td>E</td>
+							<td>M</td>
+							<td>W</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>I4</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>▲</td>
+							<td>▲</td>
+							<td>F</td>
+							<td>×</td>
+							<td>×</td>
+							<td>D</td>
+							<td>E</td>
+							<td>M</td>
+							<td>W</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>I5</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>★</td>
+							<td>★</td>
+							<td>★</td>
+							<td>★</td>
+							<td>★</td>
+							<td>★</td>
+							<td>★</td>
+							<td>★</td>
+							<td>F</td>
+							<td>D</td>
+							<td>E</td>
+							<td>M</td>
+							<td>W</td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>I6</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>★</td>
+							<td>★</td>
+							<td>★</td>
+							<td>★</td>
+							<td>★</td>
+							<td>★</td>
+							<td>★</td>
+							<td>★</td>
+							<td>F</td>
+							<td>×</td>
+							<td>×</td>
+							<td>D</td>
+							<td>E</td>
+							<td>M</td>
+							<td>W</td>
+						</tr>
+					</table>
+				</div>
+				<br>
+
+				<p>CPI(Clock Per Instruction)：1クロック当たりの平均命令実行数。</p>
+				<p>20クロックで6命令完了したので、</p>
+				<p>6/20 = 0.3 命令/1クロック = 0.3CPI</p>
+				<br> <br>
+
+				<h2>(3)</h2>
+				<p>・構造ハザードの緩和</p>
+				<p>データと命令をそれぞれ別々の専用のメモリに格納するようにすれば、FステージとMステージは同時に実行出来るようになる。こういった命令メモリとデータメモリに分けるアーキテクチャを、ハーバードアーキテクチャと呼ぶ。</p>
+				<p>他の構造ハザードは、ハードウェア資源を多重化すればよい。</p>
+				<p>※レジスタファイルの多重化は難しい。</p>
+				<br>
+				<p>・データハザードの緩和</p>
+				<p>フォワーディング機構により、Eステージでの出力をそのまま入力にすることが出来る。</p>
+				<br>
+				<p>・制御ハザード</p>
+				<p>分岐予測により予測が当たればストールを完全に無くすことが可能。簡単なものに2bit予測器があり、最小値を00、最大値を11とし、分岐が成立すれば1を加算。成立しなければ1を引く。予測器が11,10のときは成立すると予測し、成立した場合の命令をフェッチする。01,00のときは不成立と予測。予測が外れた場合はフラッシュさせ、新たに正しい命令をフェッチし直す。今回は予測が成功したと仮定して考える。</p>
+				<br>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>I1</td>
+							<td>F</td>
+							<td>D</td>
+							<td>E</td>
+							<td>M</td>
+							<td>W</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>I2</td>
+							<td></td>
+							<td>F</td>
+							<td>D</td>
+							<td>E</td>
+							<td>M</td>
+							<td>W</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>I3</td>
+							<td></td>
+							<td></td>
+							<td>F</td>
+							<td>D</td>
+							<td>E</td>
+							<td>M</td>
+							<td>W</td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>I4</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>F</td>
+							<td>D</td>
+							<td>E</td>
+							<td>M</td>
+							<td>W</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>I5</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>F</td>
+							<td>D</td>
+							<td>E</td>
+							<td>M</td>
+							<td>W</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>I6</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>F</td>
+							<td>D</td>
+							<td>E</td>
+							<td>M</td>
+							<td>W</td>
+						</tr>
+					</table>
+				</div>
+				<br>
+				<p>10クロックで6命令を実行完了したので、</p>
+				<p>6/10 = 0.6命令/1クロック = 0.6CPI</p>
+				<br>
+				<p></p>
+				<p>2倍の処理速度の向上に成功した。</p>
+				
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
+

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>東京大学 情報理工学系研究科 創造情報学専攻 2010年度 夏入試 専門科目</title>
+<!--#include virtual="/common/header.html" -->
+</head>
+<body>
+<!--#include virtual="/common/navbar.html" -->	
+
+	<div class="container well well-lg" style="background: red well">
+		<h3>東京大学 情報理工学系研究科 創造情報学専攻 2010年度 夏入試 専門科目</h3>
+		<hr />
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第１問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td></td>
+							<td>v0</td>
+							<td>v1</td>
+							<td>v2</td>
+							<td>v3</td>
+							<td>v4</td>
+						</tr>
+						<tr>
+							<td>d0</td>
+							<td>0</td>
+							<td>∞</td>
+							<td>∞</td>
+							<td>∞</td>
+							<td>∞</td>
+						</tr>
+						<tr>
+							<td>d1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>∞</td>
+							<td>5</td>
+							<td>9</td>
+						</tr>
+						<tr>
+							<td>d2</td>
+							<td>0</td>
+							<td>1</td>
+							<td>2</td>
+							<td>4</td>
+							<td>9</td>
+						</tr>
+						<tr>
+							<td>d3</td>
+							<td>0</td>
+							<td>1</td>
+							<td>2</td>
+							<td>1</td>
+							<td>9</td>
+						</tr>
+						<tr>
+							<td>d4</td>
+							<td>0</td>
+							<td>1</td>
+							<td>2</td>
+							<td>1</td>
+							<td>2</td>
+						</tr>
+					</table>
+				</div>
+
+				<h2>(2)</h2>
+				<p>D(k+1) = D(k)(min(始点～目的地 , 始点～w + w～目的地 ) w = 0</p>
+				<p>ｗを経由してu～vの距離をそれぞれ更新すればよい。</p>
+				<br>
+
+				<div align="center">
+					<p>D0:初期状態</p>
+					<table class="logic">
+						<tr>
+							<td>始＼終</td>
+							<td>v0</td>
+							<td>v1</td>
+							<td>v2</td>
+							<td>v3</td>
+							<td>v4</td>
+						</tr>
+						<tr>
+							<td>v0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>∞</td>
+							<td>5</td>
+							<td>9</td>
+						</tr>
+						<tr>
+							<td>v1</td>
+							<td>∞</td>
+							<td>0</td>
+							<td>1</td>
+							<td>3</td>
+							<td>∞</td>
+						</tr>
+						<tr>
+							<td>v2</td>
+							<td>∞</td>
+							<td>∞</td>
+							<td>0</td>
+							<td>-1</td>
+							<td>∞</td>
+						</tr>
+						<tr>
+							<td>v3</td>
+							<td>∞</td>
+							<td>1</td>
+							<td>∞</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>v4</td>
+							<td>1</td>
+							<td>∞</td>
+							<td>∞</td>
+							<td>∞</td>
+							<td>0</td>
+						</tr>
+					</table>
+				</div>
+
+				<br>
+
+				<div align="center">
+					<p>D1:w=0を経由</p>
+					<table class="logic">
+						<tr>
+							<td>始＼終</td>
+							<td>v0</td>
+							<td>v1</td>
+							<td>v2</td>
+							<td>v3</td>
+							<td>v4</td>
+						</tr>
+						<tr>
+							<td>v0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>∞</td>
+							<td>5</td>
+							<td>9</td>
+						</tr>
+						<tr>
+							<td>v1</td>
+							<td>∞</td>
+							<td>0</td>
+							<td>1</td>
+							<td>3</td>
+							<td>∞</td>
+						</tr>
+						<tr>
+							<td>v2</td>
+							<td>∞</td>
+							<td>∞</td>
+							<td>0</td>
+							<td>-1</td>
+							<td>∞</td>
+						</tr>
+						<tr>
+							<td>v3</td>
+							<td>∞</td>
+							<td>1</td>
+							<td>∞</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>v4</td>
+							<td>1</td>
+							<td>2</td>
+							<td>∞</td>
+							<td>6</td>
+							<td>0</td>
+						</tr>
+					</table>
+				</div>
+
+				<br>
+
+				<div align="center">
+					<p>D2:w=1を経由</p>
+					<table class="logic">
+						<tr>
+							<td>始＼終</td>
+							<td>v0</td>
+							<td>v1</td>
+							<td>v2</td>
+							<td>v3</td>
+							<td>v4</td>
+						</tr>
+						<tr>
+							<td>v0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>2</td>
+							<td>4</td>
+							<td>9</td>
+						</tr>
+						<tr>
+							<td>v1</td>
+							<td>∞</td>
+							<td>0</td>
+							<td>1</td>
+							<td>3</td>
+							<td>∞</td>
+						</tr>
+						<tr>
+							<td>v2</td>
+							<td>∞</td>
+							<td>∞</td>
+							<td>0</td>
+							<td>-1</td>
+							<td>∞</td>
+						</tr>
+						<tr>
+							<td>v3</td>
+							<td>∞</td>
+							<td>1</td>
+							<td>2</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>v4</td>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+							<td>5</td>
+							<td>0</td>
+						</tr>
+					</table>
+				</div>
+
+				<br>
+
+				<div align="center">
+					<p>D3:w=2を経由</p>
+					<table class="logic">
+						<tr>
+							<td>始＼終</td>
+							<td>v0</td>
+							<td>v1</td>
+							<td>v2</td>
+							<td>v3</td>
+							<td>v4</td>
+						</tr>
+						<tr>
+							<td>v0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>2</td>
+							<td>1</td>
+							<td>9</td>
+						</tr>
+						<tr>
+							<td>v1</td>
+							<td>∞</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>∞</td>
+						</tr>
+						<tr>
+							<td>v2</td>
+							<td>∞</td>
+							<td>∞</td>
+							<td>0</td>
+							<td>-1</td>
+							<td>∞</td>
+						</tr>
+						<tr>
+							<td>v3</td>
+							<td>∞</td>
+							<td>1</td>
+							<td>2</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>v4</td>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+							<td>2</td>
+							<td>0</td>
+						</tr>
+					</table>
+				</div>
+
+				<br>
+
+				<div align="center">
+					<p>D4:w=3を経由</p>
+					<table class="logic">
+						<tr>
+							<td>始＼終</td>
+							<td>v0</td>
+							<td>v1</td>
+							<td>v2</td>
+							<td>v3</td>
+							<td>v4</td>
+						</tr>
+						<tr>
+							<td>v0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>2</td>
+							<td>1</td>
+							<td>2</td>
+						</tr>
+						<tr>
+							<td>v1</td>
+							<td>∞</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>v2</td>
+							<td>∞</td>
+							<td>0</td>
+							<td>0</td>
+							<td>-1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>v3</td>
+							<td>∞</td>
+							<td>1</td>
+							<td>2</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>v4</td>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+							<td>2</td>
+							<td>0</td>
+						</tr>
+					</table>
+				</div>
+
+				<br>
+
+				<div align="center">
+					<p>D5:w=4を経由</p>
+					<table class="logic">
+						<tr>
+							<td>始＼終</td>
+							<td>v0</td>
+							<td>v1</td>
+							<td>v2</td>
+							<td>v3</td>
+							<td>v4</td>
+						</tr>
+						<tr>
+							<td>v0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>2</td>
+							<td>1</td>
+							<td>2</td>
+						</tr>
+						<tr>
+							<td>v1</td>
+							<td>2</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>v2</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>-1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>v3</td>
+							<td>2</td>
+							<td>1</td>
+							<td>2</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>v4</td>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+							<td>2</td>
+							<td>0</td>
+						</tr>
+					</table>
+				</div>
+
+				<br> <br>
+				<h2>(3)</h2>
+				<p>有向辺の数をeとする。</p>
+				<p>・Algorithm1</p>
+				<p>nとeの二重ループなので、O(ne)</p>
+				<p>・Algorithm1-ALL</p>
+				<p>Algorithm1を頂点数n分だけ行うので、O(n*ne) = O(n^2 * e)</p>
+				<p>・Algorithm2</p>
+				<p>頂点数nの３重ループなので、O(n^3)</p>
+				<br>
+				<p>頂点数より有向辺が多い場合、つまり e &gt; n の場合はAlgorithm2の方が高速。</p>
+				<p>逆に有向辺ｎより有向辺の方が少ない場合、つまり e &lt; n
+					の場合はAlgorithm1-ALLの方が高速であることが分かる。</p>
+
+			</div>
+		</div>
+
+		<br> <br> <br> <br>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第3問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<div align="center" style="float: left">
+					<p style="margin-left: 50px">半加算器の真理値表</p>
+					<table class="logic" style="margin-left: 50px">
+						<tr>
+							<td>X</td>
+							<td>Y</td>
+							<td>CO</td>
+							<td>Z</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>X</td>
+							<td>Y</td>
+							<td>CO</td>
+							<td>Z</td>
+						</tr>
+					</table>
+				</div>
+
+				<p class="resizeimage">
+					<img src="img/q3_1_1.png" alt="半加算器">
+				</p>
+				<br style="clear: both"> <br>
+
+				<div align="center" style="float: left">
+					<p style="margin-left: 50px">全加算器の真理値表</p>
+					<table class="logic" style="margin-left: 50px">
+						<tr>
+							<td>Ci</td>
+							<td>X</td>
+							<td>Y</td>
+							<td>CO</td>
+							<td>Z</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+					</table>
+					<br>
+					<p>簡単化して</p>
+					<p>CO = XY+XCi+YCi</p>
+				</div>
+
+
+
+				<p class="resizeimage">
+					<img src="img/q3_1_2.png" alt="半加算器">
+				</p>
+				<br style="clear: both"> <br>
+
+				<h2>(2)</h2>
+				<p class="resizeimage">
+					<img src="img/q3_2.png" alt="4bit加算器">
+				</p>
+
+				<p align="center" style="color: red;">※一番左の全加算器への入力はZ3ではなくX3</p>
+
+				<br> <br>
+				<h2>(3)</h2>
+				<p>画像紛失。3bit加算器を２段の階層構造にすれば設計可能。１段目はY0,Y1とX2,X1,X0を入力に使い、２段目の入力はは1段目の出力とX2,X1,X0を使う。乗算器が載ってない論理回路の参考書はまず無いし、書き直すのが面倒なので以上でご了承願いたい。</p>
+				<br> <br>
+				<h2>(4)</h2>
+				<p>画像無し。1〜(n-1)桁目まで普通に乗算し、n桁目（符号ビット）で結果から乗算結果を引くように設計すればよい。</p>
+
+				<h2>おまけ</h2>
+				<p class="resizeimage">
+					<img src="img/q3_3.png" alt="4bit加算器">
+				</p>
+				<p>符号付きのスマートな計算方法を知らなかった当時の自分の残念な設計。</p>
+				<p>１段目で両方共に正の値に無理矢理変換して２段目で乗算し、３段目で片方の入力の値が負だったらビット反転したものに１を加算している。ナイーブとは言え一応目的を果たす回路なので正解・・？</p>
+				<br><br>
+				<h2>(5)</h2>
+				<p>(2)のようにカスケード接続されていると、上位の桁は下位の桁の結果が生成されるまで待たされることになり、桁数に比例して遅延してしまう。そこで上位桁の入力を、下位桁の計算が完了するのを待たずに初期入力から生成する回路を加えることによって遅延時間をO(
+					log N )にまで短縮することが可能。</p>
+				<p>初記入力から乗算に用いるそれぞれの加算器への入力を生成する先見回路を設計すればよい。</p>
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+

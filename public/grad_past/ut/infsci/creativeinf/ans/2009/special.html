@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>東京大学 情報理工学系研究科 創造情報学専攻 2009年度 夏入試 専門科目</title>
+<!--#include virtual="/common/header.html" -->
+</head>
+<body>
+<!--#include virtual="/common/navbar.html" -->	
+
+	<div class="container well well-lg" style="background: red well">
+		<h3>東京大学 情報理工学系研究科 創造情報学専攻 2009年度 夏入試 専門科目</h3>
+		<hr />
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第１問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<h3>(a)</h3>
+				<p>・Cmax</p>
+				<p>探索対象が見つからなかった場合なので</p>
+				<p>Cmax = n</p>
+				<br>
+				<p></p>
+				<p>・C ?</p>
+				<p>(i)探索対象がレコード中にある場合。</p>
+				<p>ある確率： phit = (1/2n) * n = 1/2</p>
+				<p>最小比較回数：Cmin = 1</p>
+				<p>平均比較回数：</p>
+				<p>(Cmin + Cmax)/2 * phit= (1+n)/2</p>
+				<p>1/2 の確率なので、</p>
+				<p>(1+n)/2 * 1/2 = (1+n)/4</p>
+				<br>
+				<p></p>
+				<p>(ii)探索対象がレコード中に無い場合</p>
+				<p>無い確率 : 条件より pmiss = 1/2</p>
+				<p>比較回数：必ずn回の比較がある。</p>
+				<p>n * pmiss = n/2</p>
+				<br>
+				<p></p>
+				<p>(i)(ii)より、全体としての平均比較回数は</p>
+				<p>(1+n)/4 + n/2 = (3n+1)/4</p>
+				<br> <br>
+
+				<h3>(b)</h3>
+				<p>無解答
+				<p>
+					<br> <br>
+				<h2>(2)</h2>
+				<h3>(a)</h3>
+				<p>(i)m=1のとき</p>
+				<p>Cmax = 1 ?C = 1</p>
+				<br>
+				<p></p>
+				<p>(ii)m=2のとき</p>
+				<p>Cmax = 2</p>
+				<p>?C = 13/8</p>
+				<br>
+				<p></p>
+				<p>(iii)m=3のとき</p>
+				<p>Cmax = 3</p>
+				<p>?C = 17/8</p>
+				<br>
+				<p></p>
+				<p>(iv)m=4のとき</p>
+				<p>Cmax = 4</p>
+				<p>?C = 83/32</p>
+				<br> <br>
+
+				<h3>(b)</h3>
+				<p>Cmax = m</p>
+				<p>?C = (m+2^m(m+1)-1)/2^(m+1)</p>
+				<br> <br>
+
+				<h2>(3)</h2>
+				<h3>(a)</h3>
+				<p>チェイン法を用いて衝突を回避する。</p>
+				<p>k1 = 10mod17 = 10 , k2 = 1mod17 = 1 , k3 = 17mod17 = 0 , k4 =
+					97mod17 = 12</p>
+				<p>k5 = 21mod17 = 4 ,k6 = 4mod17 =4 , k7 = 39mod17 = 5 , k8 =
+					73mod17 = 5</p>
+
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>0</td>
+							<td>k3</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>k2</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>k5 -> k6</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>k7 -> k8</td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>8</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>9</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>10</td>
+							<td>k1</td>
+						</tr>
+						<tr>
+							<td>11</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>12</td>
+							<td>k4</td>
+						</tr>
+						<tr>
+							<td>13</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>14</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>15</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>16</td>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+				<br> <br>
+
+				<h3>(b)</h3>
+				<p>phit = 1/8</p>
+				<p>1回の比較で発見：k1,k2,k3,k4,k5,k8</p>
+				<p>2回の比較で発見：k6,k8</p>
+				<br>
+				<p></p>
+				<p>1*(p1+p2+p3+p4+p5+p7)+ 2*(p6+p7) = 6/8 + 2*(2/8) = 6/8 + 4/8
+					= 5/4 回で見つかる</p>
+				<p>→Cバー</p>
+				<br>
+				<p></p>
+				<p>Cmax = 2</p>
+				<br> <br>
+
+				<h2>(4)</h2>
+				<p>・逐次探索</p>
+				<p>探索開始位置付近に探索対象が来るようにすれば高速性が期待出来るが、完全にランダムの探索では確実ではあるが遅い。O(n)の時間が掛かる。</p>
+				<br>
+				<p></p>
+				<p>・2分探索</p>
+				<p>予めソート済みであることが条件ではあるが、O(log(n))の探索効率を実現する。</p>
+				<br>
+				<p></p>
+				<p>・ハッシュ表</p>
+				<p>十分に余裕のある容量のハッシュ表であるならばO(1)で探索可能。空き容量が狭くなると衝突が頻繁に発生し、速度が低下する。速度は容量、ハッシュ関数、衝突回避法などの組み合わせによって大きく左右される。</p>
+
+			</div>
+		</div>
+
+		<br> <br> <br> <br>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第2問</h3>
+			</div>
+			<div class="panel-body">
+
+				<h2>(1)</h2>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>Z3</td>
+							<td>Z2</td>
+							<td>Z1</td>
+							<td>Z0</td>
+							<td>nextZ3</td>
+							<td>nextZ2</td>
+							<td>nextZ1</td>
+							<td>nextZ0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+					</table>
+				</div>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<p class="resizeimage">
+					<img src="img/q2_2.png" alt="4bitカウンタ">
+				</p>
+				<p align="center">※問題の趣旨的には（１）の真理値表からカルノー図で設計？</p>
+				<br>
+				<br>
+
+				<h2>(3)</h2>
+				<p class="resizeimage">
+					<img src="img/q2_3.png" alt="4bitカウンタ">
+				</p>
+				<br>
+				<br>
+
+				<h2>(4)</h2>
+				<p style="color: red">無解答</p>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+

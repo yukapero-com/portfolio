@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>東京大学 情報理工学系研究科 コンピュータ科学専攻 2009年度 専門科目Ⅰ</title>
+<!--#include virtual="/common/header.html" -->
+</head>
+<body>
+<!--#include virtual="/common/navbar.html" -->	
+
+	<div class="container well well-lg" style="background: red well">
+		<h3>東京大学 情報理工学系研究科 コンピュータ科学専攻 2009年度 専門科目Ⅰ</h3>
+		<hr />
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">問題2</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<p>必要なメモリ空間の大きさ：n</p>
+				<p>member(S,x) : O(1)</p>
+				<p>find(x) : O(1)</p>
+				<p>merge(Si,Si) : O(n)</p>
+				<p>頻繁に要素の属する集合を調べる場合。</p>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<p>必要なメモリ空間の大きさ : O(n)</p>
+				<p>member(S,x) : O(n)</p>
+				<p>find(x) : O(logn)~O(1)
+					マージの際に必ず小さい方が大きい方にくっつくようにするならO(logn)。ポインタをたどる過程で根に付け替えるならO(1)</p>
+				<p>merge(Si,Sj) : O(1)</p>
+				<p>頻繁に併合する場合があるとき。</p>
+				<br> <br>
+
+				<h2>(3)</h2>
+				<p>必要なメモリ空間の大きさ：衝突のことを考慮すれば、ハッシュ表は出来るだけ大きい方がよい。現実的に考えれば、2nの大きさであれば十分実用的であると考えられる。</p>
+				<p>member(S,x) : O(1)</p>
+				<p>find(x) : O(1)</p>
+				<p>merge(Si,Sj) : O(1)</p>
+				<p>メモリ空間に余裕がある場合に使うとよい。</p>
+				<br>
+				<p></p>
+				<br> <br>
+
+				<h2>(4)</h2>
+				<p>集合を示すノードを作り、最初のその集合の要素はそのノードを指し、次にそれに属する要素は、そのノードを指す要素を指すポインタを持つ。</p>
+				<p>併合時には、最もノードに近い要素のポインタだけを併合先のノードに差し変えればよいのでO(1)。</p>
+				<br>
+				<p></p>
+				<p>mergeの際に必ず要素数が小さい方が大きい方に併合されるように工夫すれば、小さい方から見れば木の深さが１増え、要素数が２倍以上になっている。よって木の深さはO(logn)。これはfindがO(logn)であることを同時に示している。</p>
+			</div>
+		</div>
+
+	</div>
+
+</body>
+</html>
+

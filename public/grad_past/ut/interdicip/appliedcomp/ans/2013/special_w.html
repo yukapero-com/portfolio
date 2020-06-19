@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>東京大学大学院 学際情報学府学際情報学専攻 総合分析情報学コース 2013年度 冬季募集 専門科目</title>
+<!--#include virtual="/common/header.html" -->
+</head>
+<body>
+<!--#include virtual="/common/navbar.html" -->	
+
+	<div class="container well well-lg" style="background: red well">
+		<h3>
+			東京大学大学院 学際情報学府学際情報学専攻 総合分析情報学コース<br>2013年度 冬季募集 専門科目
+		</h3>
+		<hr />
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第2問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>回数</td>
+							<td>変数</td>
+							<td>s</td>
+							<td>a</td>
+							<td>b</td>
+							<td>c</td>
+							<td>d</td>
+						</tr>
+						<tr>
+							<td>1回目</td>
+							<td>X<br>D
+							</td>
+							<td>◎<br>0
+							</td>
+							<td>X<br>∞
+							</td>
+							<td>X<br>1
+							</td>
+							<td>X<br>∞
+							</td>
+							<td>X<br>8
+							</td>
+						</tr>
+						<tr>
+							<td>2回目</td>
+							<td>X<br>D
+							</td>
+							<td>○<br>0
+							</td>
+							<td>X<br>3
+							</td>
+							<td>◎<br>1
+							</td>
+							<td>X<br>6
+							</td>
+							<td>X<br>7
+							</td>
+						</tr>
+						<tr>
+							<td>3回目</td>
+							<td>X<br>D
+							</td>
+							<td>○<br>0
+							</td>
+							<td>◎<br>3
+							</td>
+							<td>○<br>1
+							</td>
+							<td>X<br>4
+							</td>
+							<td>X<br>7
+							</td>
+						</tr>
+						<tr>
+							<td>4回目</td>
+							<td>X<br>D
+							</td>
+							<td>○<br>0
+							</td>
+							<td>○<br>3
+							</td>
+							<td>○<br>1
+							</td>
+							<td>◎<br>4
+							</td>
+							<td>X<br>5
+							</td>
+						</tr>
+						<tr>
+							<td>5回目</td>
+							<td>X<br>D
+							</td>
+							<td>○<br>0
+							</td>
+							<td>○<br>3
+							</td>
+							<td>○<br>1
+							</td>
+							<td>○<br>4
+							</td>
+							<td>◎<br>5
+							</td>
+						</tr>
+					</table>
+				</div>
+
+				<br> <br>
+				<h2>(2)</h2>
+				<p>暫定的なそれぞれの最短距離を更新する際に、どのノードから来た時の更新なのかをそれぞれのノードが一つの情報としてノードに記録しておけばよい。</p>
+				<p>頂点dの場合を(1)の表を見ながら考える。</p>
+				<p>1回目の更新：sから来て距離8</p>
+				<p>2回目の更新：bから来て距離７</p>
+				<p>3回目の更新：cから来て距離5</p>
+				<p>最短ルートを求める場合は、まず頂点dがどこから来たかを求めるとcであることが分かる。</p>
+				<p>同様にノードcにはaから来たという情報を保持している。</p>
+				<p>同様にaにはbから来たという情報。bにはsから来たという情報。</p>
+				<p>よって、s→b→a→c→dが最短ルートであることが分かった。</p>
+				<br> <br>
+				<h2>(3)</h2>
+				<p>最悪の比較回数を考える。</p>
+				<p>前提として、while文中のfor文の頂点uに接する各辺は隣接リストで管理されてないものと解釈する。</p>
+				<p>(1)V-Xから距離が最小の頂点を探索する処理</p>
+				<p>Σ{q=1,n-1} (q-1) ＝ (1/2) (n^2 - 3 * n + 2)</p>
+				<p>→O(n^2)</p>
+				<p>(2)頂点uに接する各辺それぞれに行う比較処理</p>
+				<p>n * m</p>
+				<p>最悪の場合は完全グラフの場合であるので、m = n-1</p>
+				<p>n * (n-1) → O(n^2)</p>
+				<br>
+				<p></p>
+				<p>(1)、(2)を足すと、 n^2 + n^2 = O(n^2)となる。</p>
+
+			</div>
+		</div>
+
+		<br> <br> <br> <br>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第4問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<h3>(a)</h3>
+				<p>複数のプロセスが何かしらの資源を占有しながら、他のプロセスが占有する資源の解放を待つ状態が相互に発生し、関わる全てのプロセスが解放待ち状態となり処理が停止してしまう状態。</p>
+				<br> <br>
+
+				<h3>(b)</h3>
+				<p>２つのプロセスA、Bの場合を考える。</p>
+				<p>プロセスAは資源Pを、プロセスBは資源Qを占有している状態だとする。</p>
+				<p>プロセスAが資源Qを要求する場合、資源Qが解放するまで待ち状態に入る。</p>
+				<p>このときプロセスBが資源Pを要求した場合、プロセスBも同様に資源Pが解放されるまで待ち状態に入る。</p>
+				<p>プロセスA,Bともに待ち状態に入ってしまい、このままでは永遠に資源が開放されることは無く、処理が停止してしまう。</p>
+				<br> <br>
+				<h3>(c)</h3>
+				<p>・プロセスAが資源Pをロックする際に、同時に資源Qもロックする方法。</p>
+				<p>・セマフォの獲得順序を工夫し、デッドロックが発生しないようにスケジューリングする。</p>
+				<p>・セマフォの獲得時間を設定し、過ぎた場合は強制的に解放させる方法。</p>
+				<p>・待ち行列に並んだら占有している資源を解放する。</p>
+				<p>などなど、、、。</p>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<h3>(a)</h3>
+
+				<p>任意アクセス制御。</p>
+				<p>全ての資源それぞれにその資源の所有者が設定され、資源のアクセス方針は所有者が全て決める制御方式。ACL(アクセス制御リスト)によってアクセス権情報が管理されている。</p>
+				<br> <br>
+				<h3>(b)</h3>
+				<p>強制アクセス制御。</p>
+				<p>資源と、その資源を利用するプロセスに対してセキュリティレベルを付与し、レベルを比較することで強制的なアクセス制限をする方式。</p>
+				<br> <br>
+				<h3>(3)</h3>
+				<p>・同期型メッセージパッシング</p>
+				<p>送信側は、受信側が受信準備が出来るまで待機する方式。送信したデータはそのまま受信側の記憶装置に送信されるのでバッファが必要無い。</p>
+				<br>
+				<p>・非同期型メッセージパッシング方式</p>
+				<p>送信側は受信側の受信準備を待たずに受信側のバッファにデータを送信するため、送信を待たされることが無い。しかしバッファオーバーフローに注意する必要がある。</p>
+
+			</div>
+		</div>
+
+		<br> <br> <br> <br>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第5問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<h3>(b)</h3>
+				<p>単精度（32bit）の場合を示す。</p>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>符号ビット(1bit)</td>
+							<td>指数ビット(8bit)</td>
+							<td>仮数(23bit)</td>
+						</tr>
+					</table>
+				</div>
+
+				<p>・符号ビット</p>
+				<p>0：正の数</p>
+				<p>1：負の数</p>
+				<br>
+				<p></p>
+				<p>・指数ビット</p>
+				<p>127の下駄履き表現で指数を表す。</p>
+				<p>指数ビットが00000000の場合の指数が2^-127となり、01111111の場合に2^0となる。</p>
+				<br>
+				<p></p>
+				<p>・仮数</p>
+				<p>整数部が１であるようにした数の小数部を表す。</p>
+				<br> <br>
+				<h3>(b)</h3>
+				<p>32bitの場合。</p>
+				<p>32bit = 4byte</p>
+				<p>多バイトのデータの格納方法。</p>
+				<br>
+				<p></p>
+				<p>・Big Endian(ビッグエンディアン)</p>
+				<p>人間から見て分かりやすいデータ格納方法。データの上位バイトからメモリ上の低いアドレスに順次格納する方法。4byteの0A
+					, 0B , 0C , 0D というデータをメモリに格納する場合、</p>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>a番地</td>
+							<td>0A</td>
+						</tr>
+						<tr>
+							<td>a+1番地</td>
+							<td>0B</td>
+						</tr>
+						<tr>
+							<td>a+2番地</td>
+							<td>0C</td>
+						</tr>
+						<tr>
+							<td>a+3番地</td>
+							<td>0D</td>
+						</tr>
+					</table>
+				</div>
+				<p>といったように直感的に分かりやすい格納方法。</p>
+				<br>
+				<p>・Little Endian(リトルエンディアン)</p>
+				<p>データの下位バイトからメモリ上の低いアドレスに順次格納する方式。</p>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>a番地</td>
+							<td>0D</td>
+						</tr>
+						<tr>
+							<td>a+1番地</td>
+							<td>0C</td>
+						</tr>
+						<tr>
+							<td>a+2番地</td>
+							<td>0B</td>
+						</tr>
+						<tr>
+							<td>a+3番地</td>
+							<td>0A</td>
+						</tr>
+					</table>
+				</div>
+
+				<p>といったようになる。コンピュータからはリトルエンディアンの方が処理しやすい。</p>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<h3>(a)</h3>
+				<p>メモリのそれぞれの番地が、キャッシュメモリ上の一つの場所に対応する方式。</p>
+				<br> <br>
+				<h3>(b)</h3>
+				<p>メモリのそれぞれの番地が、キャッシュメモリ上の全ての場所に対応する方式。</p>
+				<br> <br>
+				<h3>(c)</h3>
+				<p>メモリのそれぞれの番地が、連想度に応じた数の場所に対応する方式。</p>
+				<p>例として2-way
+					セットアソシアティブ方式(連想度２)では、メモリのそれぞれの番地が、キャッシュメモリ上の２つの場所に対応する方式。</p>
+
+			</div>
+		</div>
+
+		<br> <br> <br> <br>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第6問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<p>通信時に起こったエラーを検出するために用いられる。（IP、TCP、UDPヘッダ）</p>
+				<p>・パケット全体を2オクテットごとの16bit列に分割。</p>
+				<p>・それぞれの１の補数を求め、和を求める。</p>
+				<p>・その１の補数をチェックサムとする。</p>
+				<br> <br>
+				<h2>(2)</h2>
+				<p>TCPはヘッダに加え、データを含めたチェックを行うのに対し、UDPはヘッダに対してのみチェックを行う。</p>
+				<br> <br>
+				<h2>(3)</h2>
+				<p>ACK :
+					データの受信が正常に完了したときに、そのことを送信側に知らせるために送られる信号。同時に次に欲しいパケットの番号を送信元に伝える。</p>
+				<p>NACK : データが正常に受信出来なかった場合などに、そのことを送信側に知らせるために送られる信号。</p>
+				<br> <br>
+				<h2>(4)</h2>
+				<p>TCPでは信頼性ある通信の実現のため、具体的な情報を持たないNAKを使用しない。</p>
+				<p>代わりに再送すべきACK番号を送信することで、これを実現する。</p>
+				<br> <br>
+				<h2>(5)</h2>
+				<p>伝送中にエラーが発生していないかどうかを検出する方法。巡回冗長検査とも呼ばれる。</p>
+				<p>送信側は伝送するデータに対し、巡回的なアルゴリズムを適用し、CRCコードと呼ばれる冗長的なデータを生成し、データに加えて送信。受信側も同じ計算をして、受信したCRCコードと比較し、データが誤りなく伝送されたことを確認する方法。</p>
+				<br> <br>
+				<h2>(6)</h2>
+				<p>伝送データを一定区画に区切り、それぞれその中に含まれる１が偶数個か奇数個かに対応させて、０又は１を添付して送信する。この添付した１ビットを、パリティビットと呼ぶ。受信側はパリティビットと、１の数の対応が正しいかをチェックをすることで、データの誤り検出を行う。</p>
+				<br> <br>
+				<h2>(7)</h2>
+				<p>ハミング符号。wikipedia参照</p>
+
+			</div>
+		</div>
+
+		<br> <br> <br> <br>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第7問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>A</td>
+							<td>B</td>
+							<td>Cin</td>
+							<td>Sum</td>
+							<td>Cout</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+					</table>
+				</div>
+				<br>
+
+				<p class="resizeimage">
+					<img src="img_w/q7_1.png" alt="全加算器">
+				</p>
+
+				<br> <br>
+				<h2>(2)</h2>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>A</td>
+							<td>B</td>
+							<td>Bin</td>
+							<td>Sub</td>
+							<td>Bout</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+					</table>
+				</div>
+				<br> <br>
+				<h2>(3)</h2>
+				<p>カルノー図で簡約化して設計すると、</p>
+				<p class="resizeimage">
+					<img src="img_w/q7_3.png" alt="全減算器">
+				</p>
+				<br> <br>
+				<h2>(4)</h2>
+				<p>出力をZとすると、</p>
+				<p class="resizeimage">
+					<img src="img_w/q7_4.png" alt="マルチプレクサ">
+				</p>
+				<p>C1C0が</p>
+				<p>00 : A0の出力</p>
+				<p>01 : A1の出力</p>
+				<p>10 : A2の出力</p>
+				<p>11 : A3の出力</p>
+				<br> <br>
+
+				<h2>(5)</h2>
+				<p>省略。マルチプレクサで各機能を分けてあとは素直にそのまま設計すればよい。</p>
+
+			</div>
+		</div>
+
+
+	</div>
+</body>
+</html>
+

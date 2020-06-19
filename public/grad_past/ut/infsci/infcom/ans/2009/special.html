@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>東京大学 情報理工学系研究科 電子情報学専攻 2009年度 専門科目</title>
+<!--#include virtual="/common/header.html" -->
+</head>
+<body>
+<!--#include virtual="/common/navbar.html" -->	
+
+	<div class="container well well-lg" style="background: red well">
+		<h3>東京大学 情報理工学系研究科 電子情報学専攻 2009年度 専門科目</h3>
+		<hr />
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第2問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<p class="resizeimage">
+					<img src="img/q2_1.png" alt="状態遷移図">
+				</p>
+				<p>状態をS2S1S0の3bitで表すとする。</p>
+				<p>入力はA、出力はOとし、A/Oと状態遷移図上に表記する。</p>
+				<p>クロック入力は省略する。</p>
+				<p>000 : クロック数mod3の値が０の時。つまり３クロック周期の0クロック目。</p>
+				<p>001 : 1クロック目。A入力無し。</p>
+				<p>010 : 2クロック目。A入力無し。</p>
+				<p>011 : 1クロック目。A入力あり。</p>
+				<p>100 : 2クロック目。A入力あり。</p>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<p>(1)の図が既に最少の状態数。</p>
+				<br> <br>
+
+				<h2>(3)</h2>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>A</td>
+							<td>S2</td>
+							<td>S1</td>
+							<td>S0</td>
+							<td>nextS2</td>
+							<td>nextS1</td>
+							<td>nextS0</td>
+							<td>O</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+					</table>
+				</div>
+				<br> <br>
+
+				<h2>(4)</h2>
+				<p>状態 101,110,111はDon’t Care。</p>
+				<p style="color: red">※最初のnextS2は無視推奨</p>
+				<p class="resizeimage">
+					<img src="img/q2_4_1.png" alt="カルノー図（S1,S2)">
+				</p>
+				<p class="resizeimage">
+					<img src="img/q2_4_2.png" alt="カルノー図(S2,S0)">
+				</p>
+				<p class="resizeimage">
+					<img src="img/q2_4_3.png" alt="カルノー図(O)">
+				</p>
+
+				<h2>(5)</h2>
+				<p>Dフリップフロップ回路は、上からS2,S1,S0を表すものとする。</p>
+				<p class="resizeimage">
+					<img src="img/q2_5.png" alt="回路図">
+				</p>
+
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
+

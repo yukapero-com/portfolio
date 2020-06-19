@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>東京大学 情報理工学系研究科 コンピュータ科学専攻 2009年度 専門科目Ⅱ</title>
+<!--#include virtual="/common/header.html" -->
+</head>
+<body>
+<!--#include virtual="/common/navbar.html" -->	
+
+	<div class="container well well-lg" style="background: red well">
+		<h3>東京大学 情報理工学系研究科 コンピュータ科学専攻 2009年度 専門科目Ⅱ</h3>
+		<hr />		
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">問題3</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<p>(a)
+					サブルーチン呼び出し時にはサブルーチンから戻って来たことを考えて、呼び出し前の情報を再現するためにコールスタック上にレジスタの値やPCの値等をプッシュさせておく。仮にモジュールの外から直接積まれたデータを変更可能であるとすれば、故意にせよ不本意にせよ正常なプログラムの動作に致命的なダメージを与えかねない。例えば退避させておいたPCが他のプログラムに何らかの拍子に不本意に他の値に上書きされたとすれば、もはや正常な解と動作を保証することは不可能である。</p>
+				<br>
+				<p></p>
+				<p>(b)
+					カプセル化し、直接データ構造を読み書き出来ないようにする。モジュール内のデータにアクセスする場合は、予めモジュール内で実装されている手続きを通して行うようにすればよい。</p>
+
+			</div>
+		</div>
+
+		<br> <br> <br> <br>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">問題4</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>X3</td>
+							<td>X2</td>
+							<td>X1</td>
+							<td>X0</td>
+							<td>L1</td>
+							<td>L0</td>
+							<td>Z</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>*</td>
+							<td>*</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+					</table>
+				</div>
+				<br>
+				<br>
+
+				<h2>(2)</h2>
+				<p class="resizeimage">
+					<img src="img/q4_2.png" alt="N=4の場合">
+				</p>
+				<br>
+				<br>
+
+				<h2>(3)</h2>
+				<p class="resizeimage">
+					<img src="img/q4_3.png" alt="N=16の場合">
+				</p>
+				<br>
+				<br>
+
+				<h2>(4)</h2>
+				<p>初期入力からキャリを生成するリプルキャリ型であれば遅延時間をO(logn)に抑えることが可能。</p>
+				<p>例えば上記回路の例で言えば、</p>
+				<p>Z = ¬0*¬1*・・・*¬14*¬15</p>
+				<p>で初期入力からZ信号が求められる。</p>
+				<p>入力数nに対してlognに比例した時間がかかると近似出来るので、O(logN)となる。</p>
+			
+			</div>
+		</div>
+
+
+	</div>
+
+</body>
+</html>
+

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>東京大学 情報理工学系研究科 創造情報学専攻 2013年度 夏入試 専門科目</title>
+<!--#include virtual="/common/header.html" -->
+</head>
+<body>
+<!--#include virtual="/common/navbar.html" -->	
+
+	<div class="container well well-lg" style="background: red well">
+		<h3>東京大学 情報理工学系研究科 創造情報学専攻 2013年度 夏入試 専門科目</h3>
+		<hr />
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第１問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<p>n!通り</p>
+				<br> <br>
+				<h2>(2)</h2>
+				<p class="resizeimage">
+					<img src="img/q1_2.png" alt="グラフ">
+				</p>
+				<p>生徒sと先生pのペアを(s,p)と表すとすると、 (s1,t1) , (s2,t2) , (s3,t3) ,
+					(s4,t5) がp-matchの一つ。</p>
+				<br> <br>
+
+				<h2>(3)</h2>
+				<p>１：大きさnの整数型の２次元配列を用意する。配列にはそれぞれのtの入次数を格納するのに使用する。</p>
+				<p>２：s1～snまでのm本の辺に対応する先生の入次数をインクリメントする。</p>
+				<p>３：Vから任意の生徒頂点sを一つ取り出す。</p>
+				<p>４：その生徒頂点sの持つ全ての辺の先の先生の入次数を比較し、最も少ないものを選択。この時対象の先生が頂点集合Vに無い場合は採用しない。</p>
+				<p>５：選択した先生の頂点をVから除く。</p>
+				<p>６：Vに生徒頂点が一つ以上ある場合は３に戻る。</p>
+				<p>ステップ2はO(m)の計算量。</p>
+				<p>ステップ４は辺の数分、つまりはmに比例する比較が必要となるので、計算量O(m)。</p>
+				<br> <br>
+
+				<h2>(4)</h2>
+				<p>(s1,t7) , ２(s2,t1) , ２(s3,t5) , ２(s4,t4) , ２(s5,t3) ,
+					３(s6,t2) , ４(s7,t6)</p>
+				<br> <br>
+
+				<h2>(5)</h2>
+				<p>(s1,t1) , (s2,t2) , (s3,t7) , (s4,t6) , (s5,t3) , (s6,t5) ,
+					(s7,t4)</p>
+				<br> <br>
+
+				<h2>(6)</h2>
+				<p>(1)残った生徒or先生のなかで、希望順位の最も高い相手と、相手から自分への順位を合計したものをそれぞれ保持する。</p>
+				<p>(2)最も値が小さくなるような組み合わせを選択して組を作る。</p>
+				<p>(3)該当する生徒と先生を各生徒の順位表から削除する。</p>
+				<p>(4)組になっていない生徒or先生がいる場合は(1)に戻る。</p>
+				<br>
+				<p>計算量</p>
+				<p>(1) 生徒の順位表[最も順位の高い先生] + 先生の順位表[生徒の順位表[最も順位の高い先生] ]
+					の計算を全ての組み合わせnに対して行うので O(n)</p>
+				<p>(2) (1)の計算過程で暫定解より小さい解が出たらその組み合わせに更新すればよい。</p>
+				<p>(3) サイズnの生徒の順位表、先生の順位表に対して行う。 サイズnから削除する添字の検索：O(n)</p>
+				<br> <br>
+				<p>上記処理をサイズnの生徒と先生の表で行うため、2*O(n^2) = O(n^2)</p>
+				<p>以上よりO(n)+O(n^2) = O(n^2)</p>
+
+				<br> <br>
+				<h2>(7)</h2>
+				<p>・発音採点機能</p>
+				<p>現在日本の英語教育で足りないのはスピーキング能力である。受講者に積極的に発音させ、それを自動的に採点化、採点結果、見本音声を出力する。現在の音声認識技術の発展は目覚ましく、不可能では無いはずである。</p>
+				<br>
+				<p>・インターネット受講システム</p>
+				<p>実際に学校に出向かずに、インターネット接続環境があればいつでもどこでも世界中の先生に授業をしてもらう。スマートフォンを受講媒体として使用することも可能であろう。
+				</p>
+			</div>
+		</div>
+
+		<br> <br> <br> <br>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第２問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<p>３ビットをS2S1S0とすると、</p>
+				<p class="resizeimage">
+					<img src="img/q2_1.png" alt="３ビットカウンタ">
+				</p>
+
+				<br> <br>
+				<h2>(2)</h2>
+				<p>まず1bit比較器を作成する。真理値表は</p>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>A</td>
+							<td>B</td>
+							<td>A &gt; B</td>
+							<td>A=B</td>
+							<td>A &lt; B</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+					</table>
+				</div>
+				<p>となるので、 (A&gt;B) = A*￢B , (A=B) = not(A xor B) , (A&lt;B) =
+					￢A*B より、</p>
+				<p class="resizeimage">
+					<img src="img/q2_2_1.png" alt="1ビット比較器">
+				</p>
+				<br>
+				<p>２つの３ビット入力を(X2,X1,X0)、(Y2,Y1,Y0)とすると、１bit比較器を３つ組み合わせることで、</p>
+				<p class="resizeimage">
+					<img src="img/q2_2_2.png" alt="３ビット比較器">
+				</p>
+
+				<br>
+				<p style="color: yellow">※
+					1ビット比較器を２つ組み合わせて２ビット比較器を設計し、さらに2ビット比較器を２つ組み合わせて４ビット比較器を設計して解いたほうが１００倍楽。</p>
+
+
+				<br> <br>
+				<h2>(3)</h2>
+				<p>(1)のカウンタと(2)の比較器を使って設計すると、</p>
+				<p class="resizeimage">
+					<img src="img/q2_3.png" alt="３ビット比較器">
+				</p>
+				
+				<br> <br>
+				<h2>(3)</h2>
+				<p class = "unans">未解答<p>			
+				
+				
+			</div>
+		</div>
+
+
+	</div>
+</body>
+</html>
+

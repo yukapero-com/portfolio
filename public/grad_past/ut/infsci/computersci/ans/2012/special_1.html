@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>東京大学 情報理工学系研究科 コンピュータ科学専攻 2012年度 専門科目Ⅰ</title>
+<!--#include virtual="/common/header.html" -->
+</head>
+<body>
+<!--#include virtual="/common/navbar.html" -->	
+
+	<div class="container well well-lg" style="background: red well">
+		<h3>東京大学 情報理工学系研究科 コンピュータ科学専攻 2012年度 専門科目Ⅰ</h3>
+		<hr />
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">問題2</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<p>・アルゴリズム(I)</p>
+				<p>javaで表すと、</p>
+				<pre>
+int ans = A[1];
+for(int i=1; i&lt;=n-1; i++)
+	if(A[i] &gt; A[i+1]) 
+		ans = A[i];
+	else 
+		ans = A[i+1];		
+				</pre>
+
+				<p>となる。ansにそれぞれのiのMAX(i,i+1)が格納される。</p>
+				<p>for文１回分の計算量をcとすると、(n-1)*c の計算量であることが分かる。</p>
+				<p>よってO(n)。</p>
+				<br>
+				<p></p>
+				<p>・アルゴリズム(Ⅱ)</p>
+				<p>javaで表すと、</p>
+				<pre>
+for(int i=1; i&lt;=n-n/2+1; i++){
+	ans = A[i];
+	for(int j=i; j&lt;=i+n/2-1; j++)
+		if(ans &lt; A[j])
+			ans = A[j];
+}
+</pre>
+				<p>となる。ansにそれぞれのiのMAX(i, i+n/2-1)が格納される。</p>
+				<p>外側のfor文は n-n/2+1回繰り返され、内側のfor文はi+n/2-1回繰り返される。</p>
+				<p>ans = A[i]の計算量をc、内側のfor文内の計算量をdとすると、全体の計算量は</p>
+				<p>c(n-n/2+1)*d(i+n/2-1)となる。</p>
+				<p>よってO(n^2)</p>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<p>n=10の場合など、例を挙げて説明し、後に一般化した式を示せばよいと思う。</p>
+				<p>※表示の都合上lを大文字Lで表す。</p>
+				<p>既に計算し、値が保持されている</p>
+				<p>MAX(L , L+r-1 )と、</p>
+				<p>MAX(m-r , m-1 )</p>
+				<p>を比較して、大きい方の値がMAX(L , m )である。</p>
+				<p>１回の比較の計算量をcとすると、全体の計算量はc。</p>
+				<p>よってO(1)。</p>
+				<br>
+				<p></p>
+				<br> <br>
+
+				<h2>(3)</h2>
+				<p>・(j-i+1) の値 = 2^p を満たすpが存在する場合</p>
+				<p>テーブルTにおける、 k = p の時の MAX(i , i+2^p -1 ) が MAX(i,j)</p>
+				<p>・(j-i+1) の値 = 2^p を満たすpが存在しない場合</p>
+				<p>log2(j-i+1)の小数点を切り捨てた値gを求め、テーブルTにおいて</p>
+				<p>k=g の時の MAX(i , i+2^g-1)と、</p>
+				<p>k=g の時の MAX(j-2^g+1 , j )の値を比較した大きい方の値が、</p>
+				<p>MAX(i,j)となる。</p>
+				<br> <br>
+
+				<h2>(4)</h2>
+				<p>javaと擬似言語で表すと、</p>
+				<pre>
+int ans;
+for(int k=0; n-2^k+1 &gt;=1 ; k=k*2){
+	for(int i=1; i&lt;=n-2^k+1;i++){
+		ans = A[i];
+		for(int j=i; j&lt;=i+2^k-1; j++)
+		if(ans &lt; A[j])
+			ans = A[j];
+}
+ansの値をテーブルTに格納。
+}			
+				</pre>
+				<p>となる。繰り返しの部分のみ考慮する。</p>
+				<p>３重のfor文のそれぞれ繰り返し回数は</p>
+				<p>・最も外側のfor文 ： log2(n-2^k+1)回</p>
+				<p>・一つ内側のfor文 ： n-2^k+1回</p>
+				<p>・最も内側のfor文 ： 2^k-1回</p>
+				<p>全ての積を取った値のオーダが計算量。</p>
+				<br> <br>
+
+				<h2>(5)</h2>
+				<p>二分探索木を説明すればよいだけ？</p>
+			</div>
+		</div>
+
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">問題4</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>A</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>B</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>S</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+					</table>
+				</div>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<p>キャリー伝搬シグナルP(i,j)は、範囲中のSが全て1になる場合に１。</p>
+				<p>キャリー生成シグナルG(i,j)は、S(i,j)が次の位に繰り上がる場合に１。</p>
+				<p>S(0,1) = 5 , S(2,3) = 12 , S(0,3) = 9</p>
+				<p>・P(0,1) : 5 ≠ 2^2-2^0 = 3 より、P(0,1) = 0</p>
+				<p>・G(0,1) : 5 &gt;= 4 より、 G(0,1) = 1</p>
+				<p>・P(2,3) : 12 = 2^4-2^2 = 12 より、 P(2,3) = 1</p>
+				<p>・G(2,3) : 12 &lt; 2^4 = 16 より、 G(2,3) = 0</p>
+				<p>・P(0,3) : 9 ≠ 2^4-2^0 = 15 より、 P(0,3) = 0</p>
+				<p>・G(0,3) : 9 &lt; 2^4 = 16 より、G(0,3) = 0</p>
+				<br> <br>
+
+				<h2>(3)</h2>
+				<p>P(i,i) = Ai xor Bi , G(i,i) = Ai and Bi</p>
+				<br> <br>
+
+				<h2>(4)</h2>
+				<p>P(i,k) = P(i,j-1) * P(j,k)</p>
+				<p>G(i,k) = G(i,j-1)*P(j,k) + G(j,k)</p>
+				<br> <br>
+
+				<h2>(5)</h2>
+				<p>Si = ( ¬G(0,i-1) * ¬A * B ) + ( ¬G(0,i-1) * A * ¬B ) + (
+					G(0,i-1) * A * B )</p>
+				<br> <br>
+
+				<h2>(6)</h2>
+				<p>リプルキャリ型全加算器を示せばよい。つまり、初期入力からキャリを生成する回路を作ればよい。</p>
+			</div>
+		</div>
+
+
+	</div>
+
+</body>
+</html>
+

@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>東京大学大学院 学際情報学府学際情報学専攻 総合分析情報学コース 2011年度 冬季募集 専門科目</title>
+<!--#include virtual="/common/header.html" -->
+</head>
+<body>
+<!--#include virtual="/common/navbar.html" -->	
+
+	<div class="container well well-lg" style="background: red well">
+		<h3>
+			東京大学大学院 学際情報学府学際情報学専攻 総合分析情報学コース<br>2011年度 冬季募集 専門科目
+		</h3>
+		<hr />
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第3問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<p>最も単純な力任せの文字列探索アルゴリズムである。1文字ずつtextとpatternの先頭文字を比較し、一致したらtextの一致場所の次の文字と、patternの次の文字を比較し、これをpatternの最後の文字まで繰り返す。全部一致したらwhile文を抜け出し、一致箇所の添字を返す。途中で不一致になった場合は、最初に一致した場所の次の文字から同様の探索を行う。Textの最後の文字まで不一致だった場合には-1を返す。</p>
+				<p>以上より、最悪の場合はn*(m-1)回の文字の比較が必要なので、O(n*m)。</p>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<p>問題文では述べていないが、KMPアルゴリズムである。</p>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>パターン中の文字</td>
+							<td>A</td>
+							<td>B</td>
+							<td>C</td>
+							<td>A</td>
+							<td>B</td>
+							<td>D</td>
+						</tr>
+						<tr>
+							<td>パターンをずらす文字数</td>
+							<td>1</td>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+							<td>3</td>
+							<td>3</td>
+						</tr>
+					</table>
+				</div>
+				<br> <br>
+
+				<h2>(3)</h2>
+				<pre>
+while (text[i] != '\0' && pattern[j] != '\0') {
+	if (text[i] == pattern[j]) {
+		i++;
+		j++;
+	} else {
+ 		i = i - j + skip[j];　//変更箇所
+		j = 0;
+ 	}
+ }
+</pre>
+				<br> <br>
+
+				<h2>(4)</h2>
+				<p>スキップ表を使うとtextの文字を指すポインタが途中で不一致になったとしても戻ることは無いので、textの文字数分、つまりnに比例する比較をすることが分かる。スキップ表を作るための計算量を考えないとすれば、O(n)となる。</p>
+
+			</div>
+		</div>
+
+		<br> <br> <br> <br>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第4問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<h3>(a)</h3>
+				<p>命令のアドレス部に入っている値がそのまま有効アドレスとなる方式。名の通り直接アドレスを指す。</p>
+				<br> <br>
+
+				<h3>(b)</h3>
+				<p>アドレス部で指定したアドレスがデータではなく、目的のデータのアドレスが入っているアドレスを指す方式。名の通り他のアドレスを指定することで、間接的に目的のデータを指す方式。</p>
+				<br> <br>
+
+				<h3>(c)</h3>
+				<p>アドレス部の値にプログラムカウンタを加算した結果のアドレスを指す方式。現PCからの相対的な位置を示す方式。</p>
+				<br> <br>
+
+				<h3>(d)</h3>
+				<p>アドレス部の値にインデックスレジスタの値を加算した結果のアドレスを指す方式。一般的にはインデックスアドレスとして汎用レジスタが使われている。</p>
+				<br> <br>
+
+				<h3>(e)</h3>
+				<p>実行プログラムの先頭アドレスをベースレジスタに設定し、アドレス部には先頭を０番としたときのアドレスを入れることで、プログラムの先頭からの相対的な位置を指す方式。</p>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<p class="resizeimage">
+					<img src="img_w/q4_2.png" alt="フローチャート図">
+				</p>
+				<br> <br>
+
+				<h2>(3)</h2>
+				<h3>(a)</h3>
+				<p>一般的なメモリがアドレスを指定すると、そのアドレスに格納されたデータが返ってくるのに対して、連想メモリでは指定されたデータワードから、メモリ全体からそのワードを検索して探しだす方式。発見すれば、その位置のアドレスを返す。</p>
+				<br> <br>
+
+				<h3>(b)</h3>
+				<p>セットアソシアティブとフルアソシアティブの、対応するセット検索に利用されている。</p>
+
+			</div>
+		</div>
+
+		<br> <br> <br> <br>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第5問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<h3>(a)</h3>
+				<p>ページ0~9の中では、ページ4が参照されてから最も長い時間参照されていない。</p>
+				<p>よってページ４。</p>
+				<br> <br>
+
+				<h3>(b)</h3>
+				<p>ページの添字のキュー構造を使ってLRUを実現することが可能。参照されたら行列中にあれば削除し、新たにエンキューする。無ければ新たにエンキューする。列中では先頭にあるものが最も参照されてから長くアクセスされてないページの添字であるため、デキュー対象のページの添字が置換え対象となる。</p>
+				<br> <br>
+
+				<h3>(c)</h3>
+				<p>今後参照されるまで最も長いページを置換え対象にするアルゴリズムが、ミスの頻度を最小にする方法である。しかし実装には未来のページ参照情報が必要であり、予想することは非常に困難であるため、空間的局所性、時間的局所などの性質を生かした近似的なアルゴリズムが使われている。</p>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<p>・ライトスルー</p>
+				<p>キャッシュ書き込み時に対応するメモリ上のデータにも同時に書き込む方式。書き込みの度にメモリアクセスが必要になるが、実装は容易かつシンプルで、一貫性は常に保たれる。</p>
+				<p>・ライトバック方式</p>
+				<p>キャッシュミス時に対応するメモリ上のデータに書き込む方式。キャッシュヒット時は読み書き共にメモリアクセスの必要が無く高速だが、ミス時は追い出し処理が加わるためライトスルーよりも時間が掛かる。また、ハードが複雑になる。</p>
+			</div>
+		</div>
+
+		<br> <br> <br> <br>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第6問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<p>大規模なTCP/IPネットワークにおいて、各組織が保有、運用する自律したネットワークのこと。インターネットは複数のASを相互に接続した形態となる。</p>
+				<p>ASはAS番号によって識別される。</p>
+				<br> <br>
+
+				<h2>(2)</h2>
+				<p>AS内経路制御（IGP：Interior Gateway
+					Protocol）として代表的なものとして、RIPとSPOFが挙げられる。</p>
+				<br>
+				<p>・RIP</p>
+				<p>ルータの経由数（ホップ）がより少ない経路情報が最適経路として使用。最大メトリックが僅か15なので、大規模ネットワークには向いておらず、小規模ネットワークで使用されている。</p>
+				<br>
+				<p>・SPOF</p>
+				<p>最大メトリックの制限が無く、帯域幅に応じたコストの設定が可能。大規模ネットワークに向いている。</p>
+				<br> <br>
+
+				<h2>(3)</h2>
+				<p>AS間経路制御（EGP : Exterior Gateway Protocol ）</p>
+				<p>BGP（Border Gateway Protocol）</p>
+				<p>AS間の経路情報の交換を行うための規約の一種で、現在の主流。AS番号を基に経路制御を行う。自分の管理するネットワークのアドレスをBGPで広告し、他のネットワークにそのアドレスへのルートを知らせるのが一般的である。</p>
+				<br> <br>
+
+				<h2>(4)</h2>
+				<p>BGPの脆弱性。自分のネットワークアドレスAを他のプロバイダー等Bに広告されてしまった場合、今後クライアントがAにアクセスしたくてもBにアクセスされてしまい、ネットワークAはインターネットから孤立する。この状態をBGPハイジャック、またはprefix
+					hijackingと呼ぶ。</p>
+				<br> <br>
+
+				<h2>(5)</h2>
+				<p>プロバイダー（ISP）間の通信は、送信側に近い接続点を通るようなルーティング方法。</p>
+				<p>例えばX→Yの通信において、ISP1からISP2への通信は、Xにより近いA→Cの接続を利用。逆にY→XならD→Bを利用。</p>
+				<p>他ISP宛の通信は、出来るだけ早くそのISPに渡してしまうというルーティング方法。</p>
+				<p>ゆでたてのじゃがいも(ホットポテト)は手で持つと熱いので、すぐに他人に渡してしまう、ということからこの名前がついたらしい。</p>
+
+			</div>
+		</div>
+
+		<br> <br> <br> <br>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">第7問</h3>
+			</div>
+			<div class="panel-body">
+				<h2>(1)</h2>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>A0</td>
+							<td>A1</td>
+							<td>B0</td>
+							<td>B1</td>
+							<td>A</td>
+							<td>B</td>
+							<td>EQ</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+					</table>
+				</div>
+				<br>
+				<p>上記真理表を用いてカルノー図を使う。</p>
+				<p class="resizeimage">
+					<img src="img_w/q7_1.png" alt="カルノー図">
+				</p>
+				<p>上記A,B,EQの式より回路を作ると、</p>
+				<p class="resizeimage">
+					<img src="img_w/q7_1_2.png" alt="2bit比較器">
+				</p>
+				<br>
+				<p style="color: red">※1bit比較器を２つ組み合わせて作ったほうが楽。</p>
+
+				<h2>(2)</h2>
+				<h3>(a)</h3>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>x3</td>
+							<td>x2</td>
+							<td>x1</td>
+							<td>x0</td>
+							<td>z6</td>
+							<td>z5</td>
+							<td>z4</td>
+							<td>z3</td>
+							<td>z2</td>
+							<td>z1</td>
+							<td>z0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+					</table>
+				</div>
+				<br>
+				<p>上記真理値表よりz1が最も積項の数が多いことが分かる。</p>
+				<p>あとはz1をド・モルガンの法則で積和標準に変換すればよい。</p>
+				<br> <br>
+
+				<h3>(b)</h3>
+				<p>0~9までの入力に対するz5の真理値表とz5のカルノー図</p>
+				<div align="center">
+					<table class="logic">
+						<tr>
+							<td>x3</td>
+							<td>x2</td>
+							<td>x1</td>
+							<td>x0</td>
+							<td>z5</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+					</table>
+				</div>
+				<br>
+				<br>
+				<p class="resizeimage">
+					<img src="img_w/q7_2_b.png" alt="カルノー図">
+				</p>
+				<p>よって</p>
+				<p>z5 = (¬(x0)*¬(x2)) + (x0*¬(x1))</p>
+				<br>
+					<p class="resizeimage">
+					<img src="img_w/q7_2_b_2.png" alt="回路図">
+				</p>
+
+
+			</div>
+		</div>
+
+
+	</div>
+</body>
+</html>
+
