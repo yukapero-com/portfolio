@@ -20,7 +20,9 @@ app.set('view engine', 'ejs');
 
 app.use(logger.connectLogger(accessLogger, {
   level: 'auto',
-  // nolog: [],
+  nolog: [
+    '/health_check',
+  ],
 }));
 
 app.use(express.json());
