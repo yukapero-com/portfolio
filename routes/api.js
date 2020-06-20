@@ -9,7 +9,7 @@ router.get('/get_work_image_file_names', async function(req, res, next) {
   var result;
 
   try {
-    result = await getFileNames(`${appRoot}/public/img/work/${targetWorkImgDirName}`);
+    result = await getWorkImgFileNames(`${appRoot}/public/img/work/${targetWorkImgDirName}`);
   } catch {
     result = [];
   }
@@ -17,7 +17,7 @@ router.get('/get_work_image_file_names', async function(req, res, next) {
   res.send(result);
 });
 
-var getFileNames = function (dirPath) {
+var getWorkImgFileNames = function (dirPath) {
   return new Promise((resolve, reject) => {
     // var dirPath = appRoot + '/log/scraping';
     fs.readdir(dirPath, function (err, files) {
@@ -28,7 +28,7 @@ var getFileNames = function (dirPath) {
       var fileList = files.filter(function (file) {
         var filePath = dirPath + "/" + file;
         // return fs.statSync(filePath).isFile() && /.*\.log$/.test(filePath);
-        return fs.statSync(filePath).isFile();
+        return fs.statSync(filePath).isFile() && file != 'thumbnail.jpg';
       });
 
       return resolve(fileList);

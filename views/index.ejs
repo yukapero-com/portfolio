@@ -9,7 +9,6 @@
     <link rel="icon" href="/favicon.ico">
 
     <!-- vendors  -->
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
     <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="css/vendor/jquery-ui.min.css">
@@ -200,7 +199,7 @@
                                     <div class="card-img-top">
                                         <img v-bind:class="'card-work-img ' + (work.fitImageHeight ? 'card-work-img-fit-height' : '')"
                                              v-if="!work.noImage"
-                                             v-bind:src="(work.noImage ? '/img/work/no_image.jpg' : `/img/work/${key}/1.jpg`)"
+                                             v-bind:src="(work.noImage ? '/img/work/no_image.jpg' : `/img/work/${key}/thumbnail.jpg`)"
                                              alt="カードの画像">
                                     </div>
 
