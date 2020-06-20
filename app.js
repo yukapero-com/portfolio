@@ -7,11 +7,12 @@ const logger = require(appRoot + '/lib/logger.js');
 const consoleLogger = logger.getLogger();
 const systemLogger = logger.getLogger('system');
 const accessLogger = logger.getLogger('access');
-const favicon = require('serve-favicon')
+const favicon = require('serve-favicon');
+const compression = require('compression');
+const CACHE_TIME_MSEC =  (1000 * 60 * 60 * 24) * 1; // 1 days
 
 var indexRouter = require('./routes/index');
 var apiRouter = require('./routes/api');
-
 var app = express();
 
 // view engine setup
@@ -25,10 +26,11 @@ app.use(logger.connectLogger(accessLogger, {
   ],
 }));
 
+app.use(compression({level: 6})); // compress all resources
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'), { maxAge: CACHE_TIME_MSEC }));
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 
 // add 'require' function in ejs template code.
