@@ -150,6 +150,7 @@ h2 {
 
 .card-img-top {
     position: relative;
+    text-align: center;
 }
 
 .has-detail-icon {
@@ -177,6 +178,12 @@ h2 {
     height: 150px;
     width: 100%;
     object-fit: cover;
+}
+
+.card-work-img-fit-height {
+    height: 150px;
+    width: auto;
+    max-width: 100%;
 }
 
 .product-url {

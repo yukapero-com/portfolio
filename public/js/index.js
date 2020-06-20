@@ -218,7 +218,7 @@ function defaultComparator(a, b) {
   return 0;
 }
 
-function initDisplayWorkDetail() {
+async function initDisplayWorkDetail() {
   $('.work-card-has-detail').on('click', async (e) => {
     e.preventDefault();
 
@@ -243,7 +243,6 @@ function initDisplayWorkDetail() {
       selector: '.work-img-div',
     });
 
-    // 自分でモーダル開く処理かく
   });
 }
 

@@ -4,3 +4,4 @@ ignores/*
 log/*
 .DS_Store
 config/*
+dev/*
