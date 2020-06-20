@@ -43,10 +43,9 @@ const app = new Vue({
     // initWorkLightGallery();
     this.calcWorkTagNum();
 
-    // TODO ロード画面
-    setTimeout(() => {
+    Vue.nextTick(() => {
       initMuuri();
-    }, 500);
+    });
   },
   methods: {
     // getFilterBadgeClassByTag(tag) {
