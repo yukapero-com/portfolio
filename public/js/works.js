@@ -449,6 +449,10 @@ var works = {
     title: '大学院修士課程修了',
     scale: 60,
     summary: '東京大学大学院 情報理工学系研究科 創造情報学専攻にて修士課程を修了(最終学歴)',
+    releaseDate: {
+      startMoment: new Moment('2014-04-01'),
+      endMoment: new Moment('2016-03-31'),
+    },
     shouldHideWorkImage: true,
     fitImageHeight: true,
     detail: `
