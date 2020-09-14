@@ -3,6 +3,34 @@ const {tags} = require('/Users/yukapero/git/portfolio/public/js/tags.js');
 const _ = require('underscore');
 
 var works = {
+  finance_service_alert: {
+    title: '投資情報サービス通知アプリ',
+    scale: 30,
+    summary: '某投資情報サービスの掲示板にて、指定したユーザの投稿を検知して指定された読み上げ音声と共に通知してくれるWindows/Macアプリケーション。 プロキシでの巡回にも対応.',
+    releaseDate: {
+      startMoment: new Moment('2020-07-10'),
+      endMoment: new Moment('2020-08-03'),
+    },
+    detail: `
+    <p>某投資情報サービスの掲示板にて、指定したユーザの投稿を検知して指定された読み上げ音声と共に通知してくれるWindows/Macアプリケーション。</p>
+    <p>IPブロックを抑制するために、プロキシサーバーを介したアクセスにも対応。</p>
+    <p>ユーザ毎に巡回頻度を調整することも可能。</p>
+    <p>いち早く特定のアカウントのユーザーの投稿を察知したい場合に便利です。</p>
+    <p>ソースコード、ツール共に一般公開はしていませんが、詳細が気になる方はお気軽にお問い合わせください。</p>
+    `,
+    tags: [
+      tags.SMALL,
+      tags.PRODUCT,
+      tags.WORK,
+      tags.ELECTRON,
+      tags.JS,
+      tags.VUE,
+      tags.NODE,
+      tags.HTML,
+      tags.CSS,
+      tags.BOOTSTRAP,
+    ],
+  },
   tweet_alert: {
     title: 'ツイート通知アプリ',
     scale: 30,
@@ -115,7 +143,7 @@ var works = {
   },
   fftrends: {
     title: 'FFTrends',
-    productUrl: 'https://www.yukapero.com/fftrends',
+    // productUrl: 'https://www.yukapero.com/fftrends',
     scale: 70,
     summary: 'FinalFantasyXIVの流行りの装備を60万を超えるキャラから検索できるWebサービス',
     releaseDate: {
@@ -126,8 +154,7 @@ var works = {
       <p>ランキングはDCから種族、性別、ジョブなど、細かい指定のもと統計を取ることが可能なので、例えばPandaemoniumサーバーで男性でララフェルでジョブがナイトのキャラクターのみを対象にランキングを確認することができる。</p>
       <p>装備名で検索したり、各装備を実際に装備しているキャラクターの画像で確認することもできる。</p>
       <p>キャラクターのファッションを考える際に利用されることを想定して制作。</p>
-      <p>現在メンテナンスを一切していないため今のパッチの装備には対応していません。</p>
-      <p class="real-intention">需要はあるもののFF14の素材を利用しているため規約上このサービスから利益は取れないのに、大量の画像を扱うサービスの性質上サーバーの維持費がヤバいので、近々閉鎖の可能性が高いです・・・（）</p>
+      <p>需要はあったものの画像を取り扱う関係でサーバーの維持費が凄まじくなってしまったため公開停止中。</p>
 
       <ul>
         <li>
@@ -170,7 +197,7 @@ var works = {
   },
   fftimelines: {
     title: 'FFTimelines',
-    productUrl: 'https://www.yukapero.com/fftimelines',
+    // productUrl: 'https://www.yukapero.com/fftimelines',
     scale: 80,
     summary: 'FinalFantasyXIVの各種バトルコンテンツの攻略情報を動画に連動するタイムラインで閲覧/作成できるWebサービス',
     releaseDate: {
@@ -181,8 +208,7 @@ var works = {
       <p>バトルコンテンツの予習をする際には有志が作った解説サイトや、Lodestoneの日記、プレイ動画等を参考にされると思いますが、静的なページではどうしても実戦のイメージが沸きにくいし、対して動画では編集の凝り具合にも寄るものの、情報の一覧性に乏しい問題を感じます。</p>
       <p>ということで、それなら両者の良さを合わせたら良いのではないか？を実現したWebアプリケーション。</p>
       <p>Node.jsの勉強を兼ねて作成。</p>
-      <p>とりあえず<a href="https://www.yukapero.com/fftimelines/edit/d99824ea" target="_blank">こちら</a>を見て頂くとどのようなサービスなのかがよく分かるかと思います。</p>
-      <p>現在メンテナンスを一切していないため今のコンテンツには対応していません。</p>
+      <p>現在公開停止中</p>
       <ul>
         <li>
         FF14公式コミュニティサイトでのサービスリリースの告知記事
@@ -234,7 +260,7 @@ var works = {
   },
   buzzranking: {
     title: 'BuzzRanking',
-    productUrl: 'https://www.buzzranking.net/',
+    // productUrl: 'https://www.buzzranking.net/',
     scale: 100,
     summary: 'Twitterでの注目度を基に商品やサービスをランキング形式で紹介する一風変わった総合ランキングサイト',
     releaseDate: {
@@ -254,7 +280,7 @@ var works = {
       数万という商品を扱うので、それら全てがGoogleのインデックスに登録されることによって各ページへの少量のアクセスを大量に得られることを期待しています。<br>
       </p>
       <p>
-      ※本稼働のための準備中
+      本稼働のための準備中
       </p>      
 <!--      <p>-->
 <!--      まず第一に同シリーズ物の商品の扱いの問題です。<br>-->
@@ -305,7 +331,7 @@ var works = {
   portfolio: {
     title: 'ポートフォリオサイト',
     scale: 60,
-    summary: '今閲覧頂いているポートフォリオサイト',
+    summary: '今閲覧いただいているサイト。フリーランスエンジニアとして活動するために作成。',
     releaseDate: {
       startMoment: new Moment('2020-06-16'),
     },
@@ -424,7 +450,7 @@ var works = {
   toeic: {
     title: 'TOEIC 730/990点',
     scale: 20,
-    summary: '大学院入試のために受験',
+    summary: '大学院入試のために受験。英語読解能力はエンジニアとしても大いに役立っています。',
     noImage: true,
 
     tags: [
@@ -436,7 +462,7 @@ var works = {
   toefl_ibt: {
     title: 'TOEFL-iBT 65/120点',
     scale: 20,
-    summary: '大学院入試のために受験',
+    summary: '大学院入試のために受験。英語読解能力はエンジニアとしても大いに役立っています。',
     noImage: true,
     detail: '',
     tags: [
@@ -736,6 +762,25 @@ var works = {
     tags: [
       tags.OTHERS,
       tags.QUALIFICATION,
+    ],
+  },
+  large_scale_scraping: {
+    title: '大規模スクレイピング',
+    scale: 50,
+    releaseDate: {
+      startMoment: new Moment('2020-06-18'),
+      endMoment: new Moment('2016-08-19'),
+    },
+    summary: '100万以上のページを対象にデータを抽出し、データベースへ格納。プロキシを介したアクセスに、万一途中で中断されても再開できる機能や、スクレイピングの状況が確認できる統計の閲覧機能なども搭載',
+    noImage: true,
+    detail: '',
+    tags: [
+      tags.WORK,
+      tags.PRODUCT,
+      tags.MEDIUM,
+      tags.NODE,
+      tags.VUE,
+      tags.SCRAPING,
     ],
   },
 };
